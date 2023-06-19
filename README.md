@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chuckle Challenge
+
+## Project Description
+
+The Chuckle Challenge is a website that tracks the user's ability to "Try Not to Laugh" while watching comedic YouTube videos. It uses the YouTube API to implement the videos, and uses a deep learning facial emotion recognition CNN model to detect when the user smiles, allowing the application to record the user's statistics. 
+
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). The backend AI is built in Jupyter Notebook using Python's Tensorflow.
 
 ## Getting Started
 
