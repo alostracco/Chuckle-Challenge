@@ -1,4 +1,4 @@
-import { ButtonGroup, Container, IconButton, Stack, Text, Image } from '@chakra-ui/react'
+import { ButtonGroup, Container, IconButton, Stack, Text, Image, Flex, Spacer } from '@chakra-ui/react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 const Footer: React.FC = () => {
@@ -28,9 +28,15 @@ const Footer: React.FC = () => {
                     />
                 </ButtonGroup>
             </Stack>
-            <Text fontSize="sm" color="fg.subtle">
-                &copy; {new Date().getFullYear()} LiuStracco Inc. All rights reserved.
-            </Text>
+            <Flex >
+                <Text fontSize="sm" color="fg.subtle">
+                    &copy; {new Date().getFullYear()} LiuStracco Inc. All rights reserved.
+                </Text>
+                <Spacer />
+                <Text fontSize="sm" color="fg.subtle" fontWeight="semibold">
+                    Made with ❤️ in Canada
+                </Text>
+            </Flex>
             </Stack>
         </Container>
     )

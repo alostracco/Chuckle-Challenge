@@ -6,10 +6,9 @@ import { FaGithub } from "react-icons/fa";
 const Header = () => {
 return (
     <Box
-    className="adaptive-glass"
     position="fixed"
     top="0"
-    zIndex="999999999999"
+    zIndex="999999999"
     w="full"
     >
     <Container maxWidth="container.lg" pl={4} pr={4} pt={2} pb={2}>
