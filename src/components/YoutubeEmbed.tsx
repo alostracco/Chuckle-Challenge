@@ -6,7 +6,7 @@ interface YoutubeEmbedProps {
 }
 
 const YoutubeEmbed: React.FC<YoutubeEmbedProps> = ({ embedId }) => (
-    <div className="relative overflow-hidden w-[48rem] h-[27rem] rounded-lg mt-[5rem]">
+    <div className="relative overflow-hidden w-[48rem] h-[27rem] rounded-lg">
         <iframe
             className="inset-0 w-full h-full"
             src={`https://www.youtube.com/embed/${embedId}`}
