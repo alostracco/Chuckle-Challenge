@@ -1,8 +1,12 @@
-import { Box, Button, Card, CardBody, Text } from '@chakra-ui/react';
+import { Box, Button, Card, CardBody, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 
 const WebcamFeed = () => {
+
+  const CardBg = useColorModeValue('#fff7e6', 'gray.700');
+  const ButtonBg = useColorModeValue('orange.100', 'gray.600');
+
   const webcamRef = useRef(null);
   const containerRef = useRef(null);
   const [hasPermission, setHasPermission] = useState(null);
@@ -86,9 +90,9 @@ const WebcamFeed = () => {
             className="rounded-lg w-full h-full"
           />
         ) : (
-          <Card height="16rem" width="16rem">
+          <Card height="16rem" width="16rem" bg={CardBg}>
             <Button
-              colorScheme="gray"
+              bg={ButtonBg}
               onClick={askForPermission}
               mt="40%"
               mx="auto"
