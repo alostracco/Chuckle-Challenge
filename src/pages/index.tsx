@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import { Box, ChakraProvider, Container, Heading, useColorModeValue, Text, Stack, } from '@chakra-ui/react'
+import { Box, ChakraProvider, Container, Heading, useColorModeValue, Text, Stack, Flex, Spacer, Center, } from '@chakra-ui/react'
 import Head from 'next/head'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -7,6 +7,7 @@ import Hero from '@/components/Hero'
 import YoutubeEmbed from '@/components/YoutubeEmbed'
 import theme from '@/styles/theme'
 import HowTo from '@/components/HowTo'
+import WebcamFeed from '@/components/Webcam'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -49,10 +50,16 @@ export default function Home() {
       <Header />
 
       {/* Main Body */}
-      <Container maxWidth='container.lg' centerContent pt={150}>
+      <Container maxWidth='container.xl' centerContent pt={150}>
         <Stack spacing={20}>
           <Hero />
-          <YoutubeEmbed embedId="rokGy0huYEA"/>
+          <Flex gap={30}>
+            <YoutubeEmbed embedId="rokGy0huYEA"/>
+            <Spacer />
+            <Center>
+            <WebcamFeed />
+            </Center>
+          </Flex>
           <HowTo />
         </Stack>
 

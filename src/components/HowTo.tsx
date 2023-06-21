@@ -1,13 +1,17 @@
-import { SimpleGrid, Card, CardHeader, Heading, CardBody, CardFooter, Button, Text, Center } from "@chakra-ui/react";
+import { SimpleGrid, Card, CardHeader, Heading, CardBody, CardFooter, Button, Text, Center, Stack } from "@chakra-ui/react";
 
 const HowTo: React.FC = () => {
+    const askForPermission = () => {
+        navigator.mediaDevices.getUserMedia({ video: true});
+    };
+
     return (
-        <>
-        <Heading as='h1' size='2xl' fontWeight='extrabold' textAlign='center'>
+        <Center flexDirection='column' gap={20}>
+        <Heading as='h1' size='2xl' fontWeight='extrabold'>
             How To Play
         </Heading>
-        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
-            <Card>
+        <SimpleGrid spacing={5} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+            <Card shadow='md'>
                 <CardHeader>
                     <Heading size='md'>Enable Camera</Heading>
                 </CardHeader>
@@ -15,10 +19,10 @@ const HowTo: React.FC = () => {
                     <Text>Lorem ipsum dolor inet I don't know what I'm typing here but it's filling the space.</Text>
                 </CardBody>
                 <CardFooter>
-                    <Button>Allow Access</Button>
+                    <Button onClick={askForPermission}>Allow Access</Button>
                 </CardFooter>
             </Card>
-            <Card>
+            <Card shadow='md'>
                 <CardHeader>
                     <Heading size='md'>Choose a Video</Heading>
                 </CardHeader>
@@ -29,7 +33,7 @@ const HowTo: React.FC = () => {
                     <Button>Choose Video</Button>
                 </CardFooter>
             </Card>
-            <Card>
+            <Card shadow='md'>
                 <CardHeader>
                     <Heading size='md'>Let's Play!</Heading>
                 </CardHeader>
@@ -41,7 +45,7 @@ const HowTo: React.FC = () => {
                 </CardFooter>
             </Card>
         </SimpleGrid>
-        </>
+        </Center>
     );
 };
 
