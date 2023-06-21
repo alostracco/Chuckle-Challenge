@@ -16,7 +16,7 @@ export default function Home() {
   const blueGradient = useColorModeValue("blue.100", "blue.800");
   const purpleGradient = useColorModeValue("purple.200", "purple.800");
 
-  {/* If you delete this I will be so mad istg */}
+  {/* If you delete this I will be so mad istg */ }
   console.log(
     `   ________________________________________
           wut r u doing in muh swamp...? 
@@ -54,10 +54,10 @@ export default function Home() {
         <Stack spacing={20}>
           <Hero />
           <Flex gap={30}>
-            <YoutubeEmbed embedId="rokGy0huYEA"/>
+            <YoutubeEmbed embedId="rokGy0huYEA" />
             <Spacer />
             <Center>
-            <WebcamFeed />
+              <WebcamFeed />
             </Center>
           </Flex>
           <HowTo />

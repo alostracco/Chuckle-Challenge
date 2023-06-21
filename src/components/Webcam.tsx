@@ -15,14 +15,13 @@ const WebcamFeed = () => {
   const videoConstraints = {
     width: containerDimensions.width,
     height: containerDimensions.height,
-    facingMode: 'user', // Rear or front-facing camera
+    facingMode: 'user',
   };
 
   const captureFrame = () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
       // Pass the `imageSrc` to your machine learning model for processing
-      console.log('picture taken');
     }
   };
 
@@ -55,7 +54,7 @@ const WebcamFeed = () => {
     };
   }, []);
 
-
+  {/*
   React.useEffect(() => {
     const interval = setInterval(captureFrame, 200);
 
@@ -63,7 +62,7 @@ const WebcamFeed = () => {
       clearInterval(interval);
     };
   }, []);
-
+  */}
 
   const askForPermission = () => {
     navigator.mediaDevices
