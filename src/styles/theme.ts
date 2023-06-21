@@ -24,14 +24,7 @@ const styles = {
 };
 
 const components = {
-  Drawer: {
-    // setup light/dark mode component defaults
-    baseStyle: (props: StyleFunctionProps | Record<string, any>) => ({
-      dialog: {
-        bg: mode('white', '#141214')(props),
-      },
-    }),
-  },
+  // Style components here but idk why it doesn't work for me
 };
 
 const theme = extendTheme({
