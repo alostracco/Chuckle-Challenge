@@ -9,15 +9,15 @@ const FadeInUp = ({ children, index }) => {
   };
 
   const [ref, inView] = useInView({
-    triggerOnce: true, // Trigger the animation only once
-    rootMargin: '0px 0px', // Adjust this value based on your needs
+    triggerOnce: true,
+    rootMargin: '0px 0px',
   });
 
   return (
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={inView ? "visible" : "hidden"} // Use the inView value to determine animation state
+      animate={inView ? "visible" : "hidden"}
       variants={variants}
       transition={{ duration: 0.333, delay: index * 0.2 }}
       style={{ display: "inline-block" }}
