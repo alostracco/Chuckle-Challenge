@@ -25,7 +25,7 @@ const WebcamFeed = () => {
   const captureFrame = () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
-      // Pass the `imageSrc` to your machine learning model for processing
+      // Pass the `imageSrc` to machine learning model for processing
     }
   };
 
