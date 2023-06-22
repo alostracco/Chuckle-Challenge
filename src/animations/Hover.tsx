@@ -1,13 +1,13 @@
-import { motion } from "framer-motion";
+import { motion, HTMLMotionProps } from "framer-motion";
+import { ReactNode } from "react";
 
-const Hover: React.FC = ({ children }) => {
+interface HoverProps {
+    children: ReactNode;
+}
 
-
+const Hover: React.FC<HoverProps> = ({ children }) => {
     return (
-        <motion.div
-            className='cardHover'
-            whileHover={{ scale: 1.05, y: -5 }}
-        >
+        <motion.div className="cardHover" whileHover={{ scale: 1.05, y: -5 }}>
             {children}
         </motion.div>
     );

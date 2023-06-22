@@ -78,39 +78,39 @@ const WebcamFeed = () => {
 
   return (
     <FadeInUp index={3}>
-    <Box>
-      <div
-        ref={containerRef}
-        className="rounded-lg overflow-hidden w-[16rem] h-[16rem] shadow-md border border-white"
-      >
-        {hasPermission ? (
-          <Webcam
-            audio={false}
-            mirrored
-            ref={webcamRef}
-            videoConstraints={videoConstraints}
-            className="rounded-lg w-full h-full"
-          />
-        ) : (
-          <Card height="16rem" width="16rem" bg={CardBg}>
-            <Button
-              bg={ButtonBg}
-              onClick={askForPermission}
-              mt="40%"
-              mx="auto"
-              display="block"
-            >
-              Enable Webcam
-            </Button>
-            <CardBody>
-              <Text textAlign="center" fontWeight="medium">
-                to start the AI!
-              </Text>
-            </CardBody>
-          </Card>
-        )}
-      </div>
-    </Box>
+      <Box>
+        <div
+          ref={containerRef}
+          className="rounded-lg overflow-hidden w-[16rem] h-[16rem] shadow-md border border-white"
+        >
+          {hasPermission ? (
+            <Webcam
+              audio={false}
+              mirrored
+              ref={webcamRef}
+              videoConstraints={videoConstraints}
+              className="rounded-lg w-full h-full"
+            />
+          ) : (
+            <Card height="16rem" width="16rem" bg={CardBg}>
+              <Button
+                bg={ButtonBg}
+                onClick={askForPermission}
+                mt="40%"
+                mx="auto"
+                display="block"
+              >
+                Enable Webcam
+              </Button>
+              <CardBody>
+                <Text textAlign="center" fontWeight="medium">
+                  to start the AI!
+                </Text>
+              </CardBody>
+            </Card>
+          )}
+        </div>
+      </Box>
     </FadeInUp>
   );
 };
