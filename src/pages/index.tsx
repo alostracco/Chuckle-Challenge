@@ -8,6 +8,7 @@ import YoutubeEmbed from '@/components/YoutubeEmbed'
 import theme from '@/styles/theme'
 import HowTo from '@/components/HowTo'
 import WebcamFeed from '@/components/Webcam'
+import IntroductionScreen from '@/components/IntroductionScreen'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,6 +41,7 @@ export default function Home() {
 
   return (
     <ChakraProvider theme={theme}>
+      <IntroductionScreen />
       {/* Title and Favicon */}
       <Head>
         <title>Chuckle Challenge</title>
