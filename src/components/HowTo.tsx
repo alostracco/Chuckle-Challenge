@@ -1,3 +1,4 @@
+import FadeInUp from "@/animations/FadeInUp";
 import { SimpleGrid, Card, CardHeader, Heading, CardBody, CardFooter, Button, Text, Center, Stack, Flex, useColorModeValue } from "@chakra-ui/react";
 
 const HowTo: React.FC = () => {
@@ -11,10 +12,13 @@ const HowTo: React.FC = () => {
 
     return (
         <Center flexDirection='column' gap={20}>
+            <FadeInUp index={0}>
             <Heading as='h1' size='2xl' fontWeight='extrabold'>
                 How To Play
             </Heading>
+            </FadeInUp>
             <Flex flexDirection='row' gap={5}>
+                <FadeInUp index={2}>
                 <Card shadow='md' width='15rem' bg={CardBg}>
                     <CardHeader>
                         <Heading size='md'>Enable Camera 📸</Heading>
@@ -26,6 +30,8 @@ const HowTo: React.FC = () => {
                         <Button onClick={askForPermission} bg={ButtonBg}>Allow Access</Button>
                     </CardFooter>
                 </Card>
+                </FadeInUp>
+                <FadeInUp index={1}>
                 <Card shadow='md' width='15rem' bg={CardBg}>
                     <CardHeader>
                         <Heading size='md'>Choose a Video 🎥</Heading>
@@ -37,6 +43,8 @@ const HowTo: React.FC = () => {
                         <Button bg={ButtonBg}>Choose Video</Button>
                     </CardFooter>
                 </Card>
+                </FadeInUp>
+                <FadeInUp index={2}>
                 <Card shadow='md' width='15rem' bg={CardBg}>
                     <CardHeader>
                         <Heading size='md'>Let's Play! ▶️</Heading>
@@ -48,6 +56,7 @@ const HowTo: React.FC = () => {
                         <Button bg={ButtonBg}>Start</Button>
                     </CardFooter>
                 </Card>
+                </FadeInUp>
             </Flex>
         </Center>
     );

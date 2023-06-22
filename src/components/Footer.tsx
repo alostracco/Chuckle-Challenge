@@ -1,3 +1,4 @@
+import FadeInUp from '@/animations/FadeInUp';
 import { ButtonGroup, Container, IconButton, Stack, Text, Image, Flex, Spacer } from '@chakra-ui/react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
@@ -6,10 +7,13 @@ const Footer: React.FC = () => {
         <Container as="footer" role="contentinfo" py={{ base: '12', md: '16' }}>
             <Stack spacing={{ base: '4', md: '5' }}>
                 <Stack justify="space-between" direction="row" align="center">
+                    <FadeInUp index={0}>
                     <Image
                         src="../Chuckle Challenge v2 Logo.png"
                         height="30"
                     />
+                    </FadeInUp>
+                    <FadeInUp index={1}>
                     <ButtonGroup variant="tertiary">
                         <IconButton
                             as="a"
@@ -27,15 +31,20 @@ const Footer: React.FC = () => {
                             icon={<FaTwitter fontSize="1.25rem" />}
                         />
                     </ButtonGroup>
+                    </FadeInUp>
                 </Stack>
                 <Flex >
+                    <FadeInUp index={2}>
                     <Text fontSize="sm" color="fg.subtle">
                         &copy; {new Date().getFullYear()} LiuStracco Inc. All rights reserved.
                     </Text>
-                    x<Spacer />
+                    </FadeInUp>
+                    <Spacer />
+                    <FadeInUp index={3}>
                     <Text fontSize="sm" color="fg.subtle" fontWeight="semibold">
                         Made with ❤️ in Canada
                     </Text>
+                    </FadeInUp>
                 </Flex>
             </Stack>
         </Container>

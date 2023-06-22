@@ -1,3 +1,4 @@
+import FadeInUp from '@/animations/FadeInUp';
 import { Box, Button, Card, CardBody, Text, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
@@ -76,6 +77,7 @@ const WebcamFeed = () => {
   };
 
   return (
+    <FadeInUp index={3}>
     <Box>
       <div
         ref={containerRef}
@@ -109,6 +111,7 @@ const WebcamFeed = () => {
         )}
       </div>
     </Box>
+    </FadeInUp>
   );
 };
 
