@@ -8,6 +8,7 @@ import YoutubeEmbed from '@/components/YoutubeEmbed'
 import theme from '@/styles/theme'
 import HowTo from '@/components/HowTo'
 import WebcamFeed from '@/components/Webcam'
+import About from '@/components/About'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -61,6 +62,7 @@ export default function Home() {
             </Center>
           </Flex>
           <HowTo />
+          <About />
         </Stack>
 
       </Container>
