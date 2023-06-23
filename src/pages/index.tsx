@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import { Box, ChakraProvider, Container, Heading, useColorModeValue, Text, Stack, Flex, Spacer, Center, } from '@chakra-ui/react'
+import { ChakraProvider, Container, useColorModeValue, Stack, Flex, Spacer, Center, } from '@chakra-ui/react'
 import Head from 'next/head'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'

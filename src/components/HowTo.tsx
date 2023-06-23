@@ -1,5 +1,5 @@
 import FadeInUp from "@/animations/FadeInUp";
-import { Card, CardHeader, Heading, CardBody, CardFooter, Button, Text, Center, Stack, Flex, useColorModeValue, chakra } from "@chakra-ui/react";
+import { Card, CardHeader, Heading, CardBody, CardFooter, Button, Text, Center, Flex, useColorModeValue, chakra } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 
 const HowTo: React.FC = () => {
