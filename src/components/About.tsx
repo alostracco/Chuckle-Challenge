@@ -1,6 +1,6 @@
 import { Center, Flex, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, chakra, useColorModeValue } from "@chakra-ui/react";
-import IconGrid from "./IconGrid";
 import Hover from "@/animations/Hover";
+import TheGame from "./TheGame";
 
 const About: React.FC = () => {
 
@@ -42,11 +42,9 @@ const About: React.FC = () => {
                     </TabList>
                 </Center>
 
-                <TabPanels mt='5rem'>
+                <TabPanels mt='3rem'>
                     <TabPanel>
-                        <Flex flexDirection='row' justifyContent='center' gap={5}>
-                            <IconGrid />
-                        </Flex>
+                        <TheGame />
                     </TabPanel>
                     <TabPanel>
                         <p>HELPPPP MEEEEEEEE PLEAAASSSEEE ITT HURRTTSSSSS AGHHHHHHHH</p>
