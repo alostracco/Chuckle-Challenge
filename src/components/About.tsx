@@ -1,6 +1,7 @@
 import { Center, Flex, Heading, Tab, TabList, TabPanel, TabPanels, Tabs, chakra, useColorModeValue } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 import TheGame from "./TheGame";
+import TheDevelopers from "./TheDevelopers";
 
 const About: React.FC = () => {
 
@@ -47,7 +48,7 @@ const About: React.FC = () => {
                         <TheGame />
                     </TabPanel>
                     <TabPanel>
-                        <p>HELPPPP MEEEEEEEE PLEAAASSSEEE ITT HURRTTSSSSS AGHHHHHHHH</p>
+                        <TheDevelopers />
                     </TabPanel>
                 </TabPanels>
 

@@ -51,7 +51,7 @@ export default function Home() {
       <Header />
 
       {/* Main Body */}
-      <Container maxWidth='container.xl' centerContent pt={150}>
+      <Container maxWidth='container.lg' centerContent pt={150}>
         <Stack spacing={20}>
           <Hero />
           <Flex gap={30}>

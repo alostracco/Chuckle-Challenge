@@ -5,8 +5,8 @@ import Hover from "@/animations/Hover";
 const HowTo: React.FC = () => {
 
     const CardBg = useColorModeValue('#fff7e6', 'gray.700');
-    const ButtonBg = useColorModeValue('orange.100', 'gray.600');
-    const ButtonHoverBg = useColorModeValue('orange.200', 'gray.500');
+    const ButtonBg = useColorModeValue('orange.100', 'blue.200');
+    const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
 
     const CustomButton = chakra(Button, {
         baseStyle: {
@@ -38,7 +38,7 @@ const HowTo: React.FC = () => {
                                 <Text>Give webcam access to the AI to track your facial expressions.</Text>
                             </CardBody>
                             <CardFooter>
-                                <CustomButton onClick={askForPermission} bg={ButtonBg}>Allow Access</CustomButton>
+                                <CustomButton onClick={askForPermission} bg={ButtonBg} color='gray.800'>Allow Access</CustomButton>
                             </CardFooter>
                         </Card>
                     </Hover>
@@ -53,7 +53,7 @@ const HowTo: React.FC = () => {
                                 <Text>Search for a funny video or let us pick one at random for you from YouTube.</Text>
                             </CardBody>
                             <CardFooter>
-                                <CustomButton bg={ButtonBg}>Choose Video</CustomButton>
+                                <CustomButton bg={ButtonBg} color='gray.800'>Choose Video</CustomButton>
                             </CardFooter>
                         </Card>
                     </Hover>
@@ -68,7 +68,7 @@ const HowTo: React.FC = () => {
                                 <Text>Activate the AI and begin the timer with the 'Start' button and start playing!</Text>
                             </CardBody>
                             <CardFooter>
-                                <CustomButton bg={ButtonBg}>Start</CustomButton>
+                                <CustomButton bg={ButtonBg} color='gray.800'>Start</CustomButton>
                             </CardFooter>
                         </Card>
                     </Hover>

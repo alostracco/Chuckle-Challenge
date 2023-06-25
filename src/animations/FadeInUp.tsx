@@ -20,7 +20,7 @@ const FadeInUp: React.FC<FadeInUpProps> = ({ children, index }) => {
 
   const transition: Transition = {
     duration: 0.333,
-    delay: index * 0.2,
+    delay: index * 0.15,
     ease: [0.1, 0.6, 0.8, 1],
   };
 
