@@ -5,8 +5,8 @@ import TheDevelopers from "./TheDevelopers";
 
 const About: React.FC = () => {
 
-    const CustomBg = useColorModeValue('orange.200', 'gray.700');
-    const CustomColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.900');
+    const CustomBg = useColorModeValue('orange.200', 'blue.300');
+    const CustomColor = useColorModeValue('blackAlpha.800', 'gray.800');
 
     const CustomTab = chakra(Tab, {
         baseStyle: {

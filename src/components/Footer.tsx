@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 const Footer: React.FC = () => {
     return (
-        <Container as="footer" role="contentinfo" py={{ base: '12', md: '16' }}>
+        <Container as="footer" role="contentinfo" py={{ base: '12', md: '16' }} maxWidth='container.sm'>
             <Stack spacing={{ base: '4', md: '5' }}>
                 <Stack justify="space-between" direction="row" align="center">
                     <FadeInUp index={0}>
@@ -14,23 +14,28 @@ const Footer: React.FC = () => {
                         />
                     </FadeInUp>
                     <FadeInUp index={1}>
-                        <ButtonGroup variant="tertiary">
-                            <IconButton
-                                as="a"
-                                href="https://www.linkedin.com/in/bruce-liu-651514202/"
-                                target="_blank"
-                                aria-label="LinkedIn"
-                                icon={<FaLinkedin fontSize="1.25rem" />}
-                            />
-                            <IconButton as="a" href="https://github.com/alostracco/Try-Not-To-Smile-Challenge" target="_blank" aria-label="GitHub" icon={<FaGithub fontSize="1.25rem" />} />
-                            <IconButton
-                                as="a"
-                                href="#"
-                                target="_blank"
-                                aria-label="Twitter"
-                                icon={<FaTwitter fontSize="1.25rem" />}
-                            />
-                        </ButtonGroup>
+                        <Flex alignItems='center' gap={4}>
+                            <Text fontSize="sm" color="fg.subtle" fontWeight='medium'>
+                                Share it on
+                            </Text>
+                            <ButtonGroup variant="tertiary">
+                                <IconButton
+                                    as="a"
+                                    href="https://www.linkedin.com/in/bruce-liu-651514202/"
+                                    target="_blank"
+                                    aria-label="LinkedIn"
+                                    icon={<FaLinkedin fontSize="1.25rem" />}
+                                />
+                                <IconButton as="a" href="https://github.com/alostracco/Try-Not-To-Smile-Challenge" target="_blank" aria-label="GitHub" icon={<FaGithub fontSize="1.25rem" />} />
+                                <IconButton
+                                    as="a"
+                                    href="#"
+                                    target="_blank"
+                                    aria-label="Twitter"
+                                    icon={<FaTwitter fontSize="1.25rem" />}
+                                />
+                            </ButtonGroup>
+                        </Flex>
                     </FadeInUp>
                 </Stack>
                 <Flex >

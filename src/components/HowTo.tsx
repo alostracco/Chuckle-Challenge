@@ -5,6 +5,7 @@ import Hover from "@/animations/Hover";
 const HowTo: React.FC = () => {
 
     const CardBg = useColorModeValue('#fff7e6', 'gray.700');
+    const CardText = useColorModeValue("gray.600", "gray.400");
     const ButtonBg = useColorModeValue('orange.100', 'blue.200');
     const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
 
@@ -35,7 +36,7 @@ const HowTo: React.FC = () => {
                                 <Heading size='md'>Enable Camera 📸</Heading>
                             </CardHeader>
                             <CardBody>
-                                <Text>Give webcam access to the AI to track your facial expressions.</Text>
+                                <Text color={CardText}>Give webcam access to the AI to track your facial expressions.</Text>
                             </CardBody>
                             <CardFooter>
                                 <CustomButton onClick={askForPermission} bg={ButtonBg} color='gray.800'>Allow Access</CustomButton>
@@ -50,7 +51,7 @@ const HowTo: React.FC = () => {
                                 <Heading size='md'>Choose a Video 🎥</Heading>
                             </CardHeader>
                             <CardBody>
-                                <Text>Search for a funny video or let us pick one at random for you from YouTube.</Text>
+                                <Text color={CardText}>Search for a funny video or let us pick one at random for you from YouTube.</Text>
                             </CardBody>
                             <CardFooter>
                                 <CustomButton bg={ButtonBg} color='gray.800'>Choose Video</CustomButton>
@@ -65,7 +66,7 @@ const HowTo: React.FC = () => {
                                 <Heading size='md'>Let's Play! ▶️</Heading>
                             </CardHeader>
                             <CardBody>
-                                <Text>Activate the AI and begin the timer with the 'Start' button and start playing!</Text>
+                                <Text color={CardText}>Activate the AI and begin the timer with the 'Start' button and start playing!</Text>
                             </CardBody>
                             <CardFooter>
                                 <CustomButton bg={ButtonBg} color='gray.800'>Start</CustomButton>
