@@ -1,6 +1,6 @@
 import { Box, Card, CardBody, CardHeader, Center, Flex, Link, Stack, chakra, Image, Text, useColorModeValue, ButtonGroup, IconButton } from "@chakra-ui/react"
 import Hover from "@/animations/Hover";
-import FadeInUp from "@/animations/FadeInUp";
+import TabFadeInUp from "@/animations/TabFadeInUp";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 const DURIAN_IMAGE_LINK = "https://www.google.com/search?q=durian&sxsrf=ALeKk03lX6LGG5MPefvOxxgUY-bAMZomsw:1628566732329&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjX48rsw6XyAhUHVN8KHUZsBn4Q_AUoAXoECAEQAw&cshid=1628566747467052&biw=2560&bih=1297&dpr=1.5";
@@ -13,6 +13,7 @@ const TheDevelopers: React.FC = () => {
 
     return (
         <Flex gap={5}>
+            <TabFadeInUp index={0}>
             <Hover>
                 <Box bg={CardBg} borderRadius="lg" p={8} position="relative" shadow='lg' width='27rem'>
                     <Stack>
@@ -53,6 +54,8 @@ const TheDevelopers: React.FC = () => {
                     </Stack>
                 </Box>
             </Hover>
+            </TabFadeInUp>
+            <TabFadeInUp index={1}>
             <Hover>
                 <Box bg={CardBg} borderRadius="lg" p={8} position="relative" shadow='lg' width='27rem'>
                     <Stack>
@@ -99,6 +102,7 @@ const TheDevelopers: React.FC = () => {
                     </Stack>
                 </Box>
             </Hover>
+            </TabFadeInUp>
         </Flex>
     );
 };

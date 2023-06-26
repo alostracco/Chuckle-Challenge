@@ -2,14 +2,14 @@ import { Grid, GridItem, Box, useColorModeValue } from "@chakra-ui/react";
 import { FaReact, FaPython } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript, SiChakraui, SiTailwindcss, SiFramer, SiTensorflow, SiFlask } from "react-icons/Si";
 import Hover from "@/animations/Hover";
-import FadeInUp from "@/animations/FadeInUp";
+import TabFadeInUp from "@/animations/TabFadeInUp";
 
 const IconGrid: React.FC = () => {
     const CustomBg = useColorModeValue('rgba(251,211,141,0.5)', 'whiteAlpha.200');
 
     return (
         <Grid templateColumns='repeat(3, 1fr)' gap={4}>
-            <FadeInUp index={0}>
+            <TabFadeInUp index={0}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -21,8 +21,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={1}>
+            </TabFadeInUp>
+            <TabFadeInUp index={1}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -34,8 +34,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={2}>
+            </TabFadeInUp>
+            <TabFadeInUp index={2}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -47,8 +47,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={1}>
+            </TabFadeInUp>
+            <TabFadeInUp index={1}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -60,8 +60,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={2}>
+            </TabFadeInUp>
+            <TabFadeInUp index={2}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -73,8 +73,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={3}>
+            </TabFadeInUp>
+            <TabFadeInUp index={3}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -86,8 +86,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={2}>
+            </TabFadeInUp>
+            <TabFadeInUp index={2}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -99,8 +99,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={3}>
+            </TabFadeInUp>
+            <TabFadeInUp index={3}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -112,8 +112,8 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
-            <FadeInUp index={4}>
+            </TabFadeInUp>
+            <TabFadeInUp index={4}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -125,7 +125,7 @@ const IconGrid: React.FC = () => {
                         </Box>
                     </Hover>
                 </GridItem>
-            </FadeInUp>
+            </TabFadeInUp>
         </Grid>
     )
 }

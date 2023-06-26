@@ -1,4 +1,4 @@
-import { easeOut, motion, Transition, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ReactNode } from "react";
 
@@ -7,22 +7,29 @@ interface FadeInUpProps {
   index: number;
 }
 
-const FadeInUp: React.FC<FadeInUpProps> = ({ children, index }) => {
+const TabFadeInUp: React.FC<FadeInUpProps> = ({ children, index }) => {
   const variants: Variants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
   };
 
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     rootMargin: "0px 0px",
   });
 
-  const transition: Transition = {
-    duration: 0.333,
+  const transitionIn = {
+    duration: 0.25,
     delay: index * 0.15,
     ease: [0.1, 0.6, 0.8, 1],
   };
+
+  const transitionOut = {
+    duration: 0,
+    delay: 0,
+    ease: 0,
+    display: 'hidden',
+  }
 
   return (
     <motion.div
@@ -30,7 +37,7 @@ const FadeInUp: React.FC<FadeInUpProps> = ({ children, index }) => {
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
       variants={variants}
-      transition={transition}
+      transition={inView ? transitionIn : transitionOut}
       style={{ display: "inline-block" }}
     >
       {children}
@@ -38,4 +45,4 @@ const FadeInUp: React.FC<FadeInUpProps> = ({ children, index }) => {
   );
 };
 
-export default FadeInUp;
+export default TabFadeInUp;
