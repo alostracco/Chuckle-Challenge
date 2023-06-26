@@ -9,6 +9,7 @@ import theme from '@/styles/theme'
 import HowTo from '@/components/HowTo'
 import WebcamFeed from '@/components/Webcam'
 import About from '@/components/About'
+import Buttons from '@/components/Buttons'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -61,6 +62,7 @@ export default function Home() {
               <WebcamFeed />
             </Center>
           </Flex>
+          <Buttons />
           <HowTo />
           <About />
         </Stack>

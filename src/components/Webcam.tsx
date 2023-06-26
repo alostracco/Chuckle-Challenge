@@ -1,12 +1,24 @@
 import FadeInUp from '@/animations/FadeInUp';
-import { Box, Button, Card, CardBody, Text, useColorModeValue } from '@chakra-ui/react';
+import Hover from '@/animations/Hover';
+import { Box, Button, Card, CardBody, Center, Text, chakra, useColorModeValue } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 
 const WebcamFeed = () => {
 
+  const ButtonBg = useColorModeValue('orange.100', 'blue.200');
+  const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
   const CardBg = useColorModeValue('#fff7e6', 'gray.700');
-  const ButtonBg = useColorModeValue('orange.100', 'gray.600');
+
+  const CustomButton = chakra(Button, {
+    baseStyle: {
+      bg: ButtonBg,
+      color: 'gray.800',
+      _hover: {
+        bg: ButtonHoverBg,
+      },
+    },
+  });
 
   const webcamRef = useRef(null);
   const containerRef = useRef(null);
@@ -93,20 +105,20 @@ const WebcamFeed = () => {
             />
           ) : (
             <Card height="16rem" width="16rem" bg={CardBg}>
-              <Button
-                bg={ButtonBg}
-                onClick={askForPermission}
-                mt="40%"
-                mx="auto"
-                display="block"
-              >
-                Enable Webcam
-              </Button>
-              <CardBody>
-                <Text textAlign="center" fontWeight="medium">
-                  to start the AI!
-                </Text>
-              </CardBody>
+              <Center flexDirection='column' mt='40%'>
+                <Hover>
+                  <CustomButton
+                    onClick={askForPermission}
+                  >
+                    Enable Webcam
+                  </CustomButton>
+                </Hover>
+                <CardBody>
+                  <Text textAlign="center" fontWeight="medium">
+                    to start the AI!
+                  </Text>
+                </CardBody>
+              </Center>
             </Card>
           )}
         </div>
