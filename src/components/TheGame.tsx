@@ -23,14 +23,14 @@ const TheGame: React.FC = () => {
                 </TabFadeInUp>
                 <TabFadeInUp index={1}>
                 <Text color={textColor}>
-                    Blee blah bloh this section is going to talk about the game design itself and the system 
-                    we made behind it yada yada and did some machine learning stuff to it
+                    The backend of the system primarily relied on Python and utilized TensorFlow to develop a convolutional 
+                    neural network (CNN) model for facial emotion recognition, employing the FER-2013 Dataset from Kaggle.
                 </Text>
                 </TabFadeInUp>
                 <TabFadeInUp index={2}>
                 <Text color={textColor}>
-                    I still don't really know what we should fill this content with but I know that it looks cool 
-                    like this so I'll still fill it up
+                    Data augmentation techniques were employed during preprocessing to increase the model's versatility. 
+                    Additionally, Flask was utilized to transform the model into an API, enabling interaction with the JavaScript frontend.
                 </Text>
                 </TabFadeInUp>
                 <TabFadeInUp index={3}>

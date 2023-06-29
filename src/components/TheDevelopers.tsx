@@ -4,7 +4,6 @@ import TabFadeInUp from "@/animations/TabFadeInUp";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 
 const DURIAN_IMAGE_LINK = "https://www.google.com/search?q=durian&sxsrf=ALeKk03lX6LGG5MPefvOxxgUY-bAMZomsw:1628566732329&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjX48rsw6XyAhUHVN8KHUZsBn4Q_AUoAXoECAEQAw&cshid=1628566747467052&biw=2560&bih=1297&dpr=1.5";
-const FECES_LINK = "https://en.wikipedia.org/wiki/Feces"
 
 const TheDevelopers: React.FC = () => {
     const CardText = useColorModeValue("gray.600", "gray.400");
@@ -25,7 +24,7 @@ const TheDevelopers: React.FC = () => {
                         </Text>
                         <Text color={CardText}>Can type at 130 wpm</Text>
                         <Text color={CardText}>
-                            Computer science and business student at Western University, Ivey Business School
+                            Computer Science and business student at Western University, Ivey Business School
                         </Text>
                         <ButtonGroup variant="tertiary" pt='1rem'>
                             <IconButton
@@ -63,17 +62,13 @@ const TheDevelopers: React.FC = () => {
                             AIDAN LOSTRACCO
                         </Text>
                         <Text color={CardText}>
-                            I'm a smelly idiot that likes {" "}
-                            <Link color={HighlightText} isExternal href={FECES_LINK}>
-                                feces
-                            </Link>
+                            From Guelph, Ontario, Canada
                         </Text>
                         <Text color={CardText}>
-                            I have three friends, me myself and I{" "}
-                            <chakra.span className="no-wrap">¯\_(ツ)_/¯</chakra.span>
+                            Hugeee sports guy
                         </Text>
                         <Text color={CardText}>
-                            I have no hobbies and have no defining features I hate my life
+                            Pursuing an Honours Specialization in Computer Science with a minor in Software Engineering at Western University 
                         </Text>
                         <ButtonGroup variant="tertiary" pt='1rem'>
                             <IconButton
