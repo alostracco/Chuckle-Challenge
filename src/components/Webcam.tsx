@@ -1,8 +1,9 @@
 import FadeInUp from '@/animations/FadeInUp';
 import Hover from '@/animations/Hover';
-import { Box, Button, Card, CardBody, Center, Text, chakra, useColorModeValue } from '@chakra-ui/react';
+import { Box, Button, Card, CardBody, Center, Flex, Spacer, Stack, Text, chakra, useColorMode, useColorModeValue, useToast } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
+import Timer from './Timer';
 
 const WebcamFeed = () => {
 
@@ -19,6 +20,52 @@ const WebcamFeed = () => {
       },
     },
   });
+
+  const [startTimer, setStartTimer] = useState(false);
+
+  const toast = useToast({
+    position: 'top',
+    isClosable: true,
+    variant: useColorModeValue('subtle', 'solid'),
+    colorScheme: useColorModeValue('orange', 'blue'),
+  });
+
+  const success = () => {
+    const loadingToastId = toast({
+      title: 'Starting AI...',
+      status: 'loading',
+      duration: 2000,
+      isClosable: false,
+      position: 'top',
+    });
+  
+    setTimeout(() => {
+      toast.update(loadingToastId, {
+        title: 'Activated AI!',
+        status: 'success',
+        duration: 3000,
+        isClosable: false,
+      });
+    }, 1800);
+  };
+
+  const error = () => {
+    toast({
+      title: 'Unable to Activate',
+      description: 'Enable webcam permissions to begin',
+      status: 'error',
+      duration: 3000,
+    })
+  }
+
+  const handleStartButtonClick = () => {
+    if (hasPermission) {
+      success()
+      setStartTimer(true);
+    } else {
+      error()
+    }
+  };
 
   const webcamRef = useRef(null);
   const containerRef = useRef(null);
@@ -105,41 +152,55 @@ const WebcamFeed = () => {
   };
 
   return (
-    <FadeInUp index={3}>
-      <Box>
-        <div
-          ref={containerRef}
-          className="rounded-lg overflow-hidden w-[16rem] h-[16rem] shadow-md border border-white"
-        >
-          {hasPermission ? (
-            <Webcam
-              audio={false}
-              mirrored
-              ref={webcamRef}
-              videoConstraints={videoConstraints}
-              className="rounded-lg w-full h-full"
-            />
-          ) : (
-            <Card height="16rem" width="16rem" bg={CardBg}>
-              <Center flexDirection='column' mt='40%'>
-                <Hover>
-                  <CustomButton
-                    onClick={askForPermission}
-                  >
-                    Enable Webcam
-                  </CustomButton>
-                </Hover>
-                <CardBody>
-                  <Text textAlign="center" fontWeight="medium">
-                    to start the AI!
-                  </Text>
-                </CardBody>
-              </Center>
-            </Card>
-          )}
-        </div>
-      </Box>
-    </FadeInUp>
+    <Stack spacing={5}>
+      <FadeInUp index={3}>
+        <Box>
+          <div
+            ref={containerRef}
+            className="rounded-lg overflow-hidden w-[16rem] h-[16rem] shadow-md border border-white"
+          >
+            {hasPermission ? (
+              <Webcam
+                audio={false}
+                mirrored
+                ref={webcamRef}
+                videoConstraints={videoConstraints}
+                className="rounded-lg w-full h-full"
+              />
+            ) : (
+              <Card height="16rem" width="16rem" bg={CardBg}>
+                <Center flexDirection='column' mt='40%'>
+                  <Hover>
+                    <CustomButton
+                      onClick={askForPermission}
+                    >
+                      Enable Webcam
+                    </CustomButton>
+                  </Hover>
+                  <CardBody>
+                    <Text textAlign="center" fontWeight="medium">
+                      to start the AI!
+                    </Text>
+                  </CardBody>
+                </Center>
+              </Card>
+            )}
+          </div>
+        </Box>
+      </FadeInUp>
+      <FadeInUp index={4}>
+        <Flex alignItems='center' justifyContent='space-evenly'>
+          <Hover>
+            <CustomButton
+              onClick={handleStartButtonClick}
+            >
+              Start
+            </CustomButton>
+          </Hover>
+          <Timer startTimer={startTimer} />
+        </Flex>
+      </FadeInUp>
+    </Stack>
   );
 };
 
