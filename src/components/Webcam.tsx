@@ -38,7 +38,7 @@ const WebcamFeed = () => {
       isClosable: false,
       position: 'top',
     });
-  
+
     setTimeout(() => {
       toast.update(loadingToastId, {
         title: 'Activated AI!',
@@ -58,12 +58,17 @@ const WebcamFeed = () => {
     })
   }
 
+  let activated = false;
+
   const handleStartButtonClick = () => {
-    if (hasPermission) {
-      success()
-      setStartTimer(true);
-    } else {
-      error()
+    if (!activated) {
+      if (hasPermission) {
+        activated = true;
+        success()
+        setStartTimer(true);
+      } else {
+        error()
+      }
     }
   };
 
