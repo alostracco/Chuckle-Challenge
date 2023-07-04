@@ -46,6 +46,7 @@ const WebcamFeed = () => {
         duration: 3000,
         isClosable: false,
       });
+      setStartTimer(true);
     }, 1800);
   };
 
@@ -65,7 +66,6 @@ const WebcamFeed = () => {
       if (hasPermission) {
         activated = true;
         success()
-        setStartTimer(true);
       } else {
         error()
       }
@@ -107,8 +107,7 @@ const WebcamFeed = () => {
         .catch((error) => {
           console.error('Error:', error);
         });
-      }
-    }
+    };
   };
 
   const handleUserMedia = (status) => {
@@ -140,7 +139,7 @@ const WebcamFeed = () => {
     };
   }, []);
 
-  {/*
+
   React.useEffect(() => {
     const interval = setInterval(captureFrame, 200);
 
@@ -148,7 +147,7 @@ const WebcamFeed = () => {
       clearInterval(interval);
     };
   }, []);
-  */}
+
 
   const askForPermission = () => {
     navigator.mediaDevices
