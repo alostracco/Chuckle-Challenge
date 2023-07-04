@@ -91,6 +91,23 @@ const WebcamFeed = () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
       // Pass the `imageSrc` to machine learning model for processing
+
+      // Make a POST request to the Flask API
+      // Might need to change address to 'http://localhost:3000/api/emotion'
+      fetch('/api/emotion', {
+        method: 'POST',
+        body: imageSrc,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // Process the response data
+          const predictedEmotion = data.emotion;
+          // Update the UI or take further actions based on the predicted emotion
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+      }
     }
   };
 
