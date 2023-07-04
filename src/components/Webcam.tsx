@@ -88,7 +88,7 @@ const WebcamFeed = () => {
       // Pass the `imageSrc` to machine learning model for processing
 
       // Make a POST request to the Flask API
-      fetch('http://localhost:5000/api/emotion', {
+      fetch('http://localhost:3000/api/emotion', {
         method: 'POST',
         body: imageSrc,
       })
