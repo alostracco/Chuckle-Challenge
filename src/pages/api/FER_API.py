@@ -8,31 +8,27 @@ from PIL import Image
 
 app = Flask(__name__)
 
-# Define facial emotion recognition model
+# Turn base64 encoded image into numpy array and feed it to facial emotion detection model
 def facial_emotion_recognition(image_base64):
     base64_decoded = base64.b64decode(image_base64)
-
     image = Image.open(io.BytesIO(base64_decoded))
     image_array = np.array(image)
-
-
+    
     model = tf.keras.models.load_model('FER.h5')
-
     image_array = image_array.reshape((1, ) + image_array.shape)
-
     prediction = model.predict(image_array)
-
+    
     return prediction.index(max(prediction)) 
 
 @app.route('/api/emotion', methods=['POST'])
 def recognize_emotion():
     if 'image' not in request.files:
         return jsonify({'error': 'No image file found.'}), 400
-
     image = request.files['image']
+    
     # Process the image here using facial emotion recognition model
     predicted_emotion = facial_emotion_recognition(image)
-
+    
     return jsonify({'emotion': predicted_emotion})
 
 if __name__ == '__main__':
