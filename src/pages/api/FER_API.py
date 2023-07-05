@@ -9,6 +9,8 @@ from PIL import Image
 app = Flask(__name__)
 
 # Turn base64 encoded image into numpy array and feed it to facial emotion detection model
+EMOTIONS = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+
 def facial_emotion_recognition(image_base64):
     base64_decoded = base64.b64decode(image_base64)
     image = Image.open(io.BytesIO(base64_decoded))
@@ -18,7 +20,10 @@ def facial_emotion_recognition(image_base64):
     image_array = image_array.reshape((1, ) + image_array.shape)
     prediction = model.predict(image_array)
     
-    return prediction.index(max(prediction)) 
+    emotion_index = np.argmax(prediction)
+    emotion = EMOTIONS[emotion_index]
+    
+    return emotion
 
 @app.route('/api/emotion', methods=['POST'])
 def recognize_emotion():

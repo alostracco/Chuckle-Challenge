@@ -93,8 +93,7 @@ const WebcamFeed = () => {
       // Pass the `imageSrc` to machine learning model for processing
 
       // Make a POST request to the Flask API
-      // Might need to change address to 'http://localhost:3000/api/emotion'
-      fetch('/api/emotion', {
+      fetch('/api/emotion', {  // Assuming your Flask API endpoint is '/api/emotion'
         method: 'POST',
         body: imageSrc,
       })
@@ -102,12 +101,18 @@ const WebcamFeed = () => {
         .then((data) => {
           // Process the response data
           const predictedEmotion = data.emotion;
+
+          // Check if the predicted emotion is 'Happy'
+          if (predictedEmotion === 'Happy') {
+            setStartTimer(false);  // Stop the timer and taking screenshots
+          }
+
           // Update the UI or take further actions based on the predicted emotion
         })
         .catch((error) => {
           console.error('Error:', error);
         });
-    };
+    }
   };
 
   const handleUserMedia = (status) => {
@@ -139,14 +144,16 @@ const WebcamFeed = () => {
     };
   }, []);
 
+  useEffect(() => {
+    let interval: string | number | NodeJS.Timeout | undefined;
 
-  React.useEffect(() => {
-    const interval = setInterval(captureFrame, 200);
-
+    if (startTimer) {
+      interval = setInterval(captureFrame, 200);
+    }
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [startTimer]);
 
 
   const askForPermission = () => {
