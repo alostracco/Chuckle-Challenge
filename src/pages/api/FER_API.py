@@ -35,9 +35,6 @@ def preprocess_image(base64_string):
     # Normalize the image
     image = image / 255.0
 
-    # Expand dimensions to match the input shape expected by your CNN model
-    image = np.expand_dims(image, axis=0)
-
     return image
 
 # Define a function to predict facial expression
