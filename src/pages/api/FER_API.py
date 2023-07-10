@@ -8,7 +8,7 @@ import tensorflow as tf
 from flask_cors import CORS
 import io
 
-# Load your trained CNN model
+# Load the trained CNN model
 model = tf.keras.models.load_model('FER.h5')
 
 # Define a function to preprocess the image
@@ -29,8 +29,8 @@ def preprocess_image(base64_string):
     # Convert the PIL Image to a numpy array
     image_array = np.array(image)
 
-    # Resize the image to match the input size expected by your CNN model
-    image = cv2.resize(image_array, (48, 48))  # Update with your desired input dimensions
+    # Resize the image to match the input size expected by the CNN model
+    image = cv2.resize(image_array, (48, 48))  # Update with the desired input dimensions
 
     # Normalize the image
     image = image / 255.0
@@ -39,7 +39,7 @@ def preprocess_image(base64_string):
 
 # Define a function to predict facial expression
 def predict_facial_expression(image):
-    # Pass the preprocessed image through your CNN model
+    # Pass the preprocessed image through the CNN model
     prediction = model.predict(image)
     # Get the predicted facial expression
     EMOTIONS = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
