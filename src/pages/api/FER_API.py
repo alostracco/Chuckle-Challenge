@@ -8,10 +8,8 @@ import tensorflow as tf
 from flask_cors import CORS
 import io
 
-# Load the trained CNN model
+# Load trained CNN model
 model = tf.keras.models.load_model('FER.h5')
-
-# Define a function to preprocess the image
 
 def preprocess_image(base64_string):
     # Decode the base64 string
@@ -29,44 +27,46 @@ def preprocess_image(base64_string):
     # Convert the PIL Image to a numpy array
     image_array = np.array(image)
 
-    # Resize the image to match the input size expected by the CNN model
-    image = cv2.resize(image_array, (48, 48))  # Update with the desired input dimensions
+    # Resize the image to match the input size expected by CNN model
+    image = cv2.resize(image_array, (48, 48))
 
-    # Normalize the image
+    # Normalize image
     image = image / 255.0
+
+    # Expand dimensions to match the input shape expected by CNN model
+    image = np.expand_dims(image, axis=0)
 
     return image
 
-# Define a function to predict facial expression
 def predict_facial_expression(image):
-    # Pass the preprocessed image through the CNN model
+    # Pass preprocessed image through CNN model
     prediction = model.predict(image)
-    # Get the predicted facial expression
+    # Get predicted facial expression
     EMOTIONS = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
     facial_expression = EMOTIONS[np.argmax(prediction)]
 
     return facial_expression
 
-# Create the Flask app
+# Create Flask app
 app = Flask(__name__)
 CORS(app)
 
-# Define a route to receive POST requests
+# Define route to receive POST requests
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get the base64 string from the request body
     data = request.get_json()
     base64_string = data['image']
 
-    # Preprocess the image
+    # Preprocess image
     processed_image = preprocess_image(base64_string)
 
-    # Predict the facial expression
+    # Predict facial expression
     facial_expression = predict_facial_expression(processed_image)
 
-    # Return the predicted facial expression as JSON response
+    # Return predicted facial expression as JSON response
     return jsonify({'facial_expression': facial_expression})
 
-# Run the Flask app
+# Run Flask app
 if __name__ == '__main__':
     app.run(port=5000)
