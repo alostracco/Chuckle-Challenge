@@ -4,6 +4,7 @@ import { Box, Button, Card, CardBody, Center, Flex, Spacer, Stack, Text, chakra,
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import Timer from './Timer';
+import * as tf from '@tensorflow/tfjs';
 
 const WebcamFeed = () => {
 
@@ -72,7 +73,7 @@ const WebcamFeed = () => {
     }
   };
 
-  const webcamRef = useRef(null);
+  const webcamRef = useRef<Webcam>(null);
   const containerRef = useRef(null);
   const [hasPermission, setHasPermission] = useState(null);
 
@@ -90,32 +91,30 @@ const WebcamFeed = () => {
   const captureFrame = () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
-      // Pass the `imageSrc` to machine learning model for processing
 
-      // Make a POST request to the Flask API
-      fetch('/api/emotion', {  // Assuming your Flask API endpoint is '/api/emotion'
+      // Make an HTTP POST request to the Flask API
+      fetch('http://localhost:5000/predict', {
         method: 'POST',
-        body: imageSrc,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ image: imageSrc }),
       })
-        .then((response) => response.json())
-        .then((data) => {
-          // Process the response data
-          const predictedEmotion = data.emotion;
-
-          // Check if the predicted emotion is 'Happy'
-          if (predictedEmotion === 'Happy') {
-            setStartTimer(false);  // Stop the timer and taking screenshots
-          }
-
-          // Update the UI or take further actions based on the predicted emotion
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data
+          const facialExpression = data.facial_expression;
+          console.log('Facial Expression:', facialExpression);
         })
-        .catch((error) => {
+        .catch(error => {
+          // Handle any errors
           console.error('Error:', error);
         });
     }
   };
 
-  const handleUserMedia = (status) => {
+
+  const handleUserMedia = (status: string) => {
     setHasPermission(status === 'granted');
   };
 
