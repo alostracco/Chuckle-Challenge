@@ -1,10 +1,10 @@
 import FadeInUp from '@/animations/FadeInUp';
 import Hover from '@/animations/Hover';
-import { Box, Button, Card, CardBody, Center, Flex, Spacer, Stack, Text, chakra, useColorMode, useColorModeValue, useToast } from '@chakra-ui/react';
+import { Box, Button, Card, CardBody, Center, Flex, Spacer, Stack, Text, chakra, useColorMode, useColorModeValue, useDisclosure, useToast } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import Timer from './Timer';
-import * as tf from '@tensorflow/tfjs';
+import GameOver from './GameOver';
 
 const WebcamFeed = () => {
 
@@ -88,6 +88,9 @@ const WebcamFeed = () => {
     facingMode: 'user',
   };
 
+  // Function for opening GameOver screen
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const captureFrame = () => {
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
@@ -105,6 +108,9 @@ const WebcamFeed = () => {
           // Handle the response data
           const facialExpression = data.facial_expression;
           console.log('Facial Expression:', facialExpression);
+          if (facialExpression === 'Happy') {
+            onOpen();
+          }
         })
         .catch(error => {
           // Handle any errors
@@ -147,7 +153,7 @@ const WebcamFeed = () => {
     let interval: string | number | NodeJS.Timeout | undefined;
 
     if (startTimer) {
-      interval = setInterval(captureFrame, 200);
+      interval = setInterval(captureFrame, 400);
     }
     return () => {
       clearInterval(interval);
@@ -211,6 +217,7 @@ const WebcamFeed = () => {
           <Timer startTimer={startTimer} />
         </Flex>
       </FadeInUp>
+      <GameOver isOpen={isOpen} onClose={onClose} />
     </Stack>
   );
 };
