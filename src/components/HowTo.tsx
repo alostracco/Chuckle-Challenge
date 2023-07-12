@@ -70,7 +70,7 @@ const HowTo: React.FC = () => {
                                 <Heading size='md'>Let's Play! ▶️</Heading>
                             </CardHeader>
                             <CardBody>
-                                <Text color={CardText}>Activate the AI and begin the timer with the 'Start' button and start playing!</Text>
+                                <Text color={CardText}>Activate the AI and begin the timer with the 'Start' button and try not to laugh!</Text>
                             </CardBody>
                             <CardFooter>
                                 <CustomButton bg={ButtonBg} color='gray.800' onClick={handleButtonClick}>Start</CustomButton>
