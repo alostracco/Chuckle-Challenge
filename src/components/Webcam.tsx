@@ -4,7 +4,6 @@ import { Box, Button, Card, CardBody, Center, Flex, Spacer, Stack, Text, chakra,
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import Timer from './Timer';
-import GameOver from './GameOver';
 
 const WebcamFeed = () => {
 
@@ -63,7 +62,7 @@ const WebcamFeed = () => {
   let activated = false;
 
   const handleStartButtonClick = () => {
-    if (!activated) {
+    if (activated === false) {
       if (hasPermission) {
         activated = true;
         success()
@@ -88,10 +87,8 @@ const WebcamFeed = () => {
     facingMode: 'user',
   };
 
-  // Function for opening GameOver screen
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   const captureFrame = () => {
+    activated = true;
     if (webcamRef.current) {
       const imageSrc = webcamRef.current.getScreenshot();
 
@@ -109,7 +106,8 @@ const WebcamFeed = () => {
           const facialExpression = data.facial_expression;
           console.log('Facial Expression:', facialExpression);
           if (facialExpression === 'Happy') {
-            onOpen();
+            setStartTimer(false);
+            activated = false;
           }
         })
         .catch(error => {
@@ -217,7 +215,6 @@ const WebcamFeed = () => {
           <Timer startTimer={startTimer} />
         </Flex>
       </FadeInUp>
-      <GameOver isOpen={isOpen} onClose={onClose} />
     </Stack>
   );
 };

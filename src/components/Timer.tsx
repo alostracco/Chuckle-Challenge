@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Text } from '@chakra-ui/react';
+import { Button, Text, useDisclosure } from '@chakra-ui/react';
+import GameOver from './GameOver';
 
 interface TimerProps {
     startTimer: boolean;
@@ -8,6 +9,8 @@ interface TimerProps {
 const Timer: React.FC<TimerProps> = ({ startTimer }) => {
     const [timeElapsed, setTimeElapsed] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [finalTime, setFinalTime] = useState(0);
 
     useEffect(() => {
         let interval: NodeJS.Timeout | null = null;
@@ -15,6 +18,7 @@ const Timer: React.FC<TimerProps> = ({ startTimer }) => {
         if (isRunning) {
             interval = setInterval(() => {
                 setTimeElapsed((prevTime) => prevTime + 1);
+                setFinalTime((prevTime) => prevTime + 1);
             }, 1000);
         }
 
@@ -36,11 +40,10 @@ const Timer: React.FC<TimerProps> = ({ startTimer }) => {
         return `${seconds}s`;
     };
 
-    const handleStartStopClick = () => {
-        setIsRunning((prevState) => !prevState);
-    };
-
     const handleResetClick = () => {
+        if (timeElapsed != 0) {
+            onOpen();
+        }
         setTimeElapsed(0);
         setIsRunning(false);
     };
@@ -48,11 +51,18 @@ const Timer: React.FC<TimerProps> = ({ startTimer }) => {
     useEffect(() => {
         if (startTimer) {
             setIsRunning(true);
+            setFinalTime(0);
+        }
+        else {
+            handleResetClick();
         }
     }, [startTimer]);
 
     return (
-        <Text>{formatTime(timeElapsed)}</Text>
+        <>
+            <GameOver isOpen={isOpen} onClose={onClose} timeElapsed={finalTime} />
+            <Text>{formatTime(timeElapsed)}</Text>
+        </>
     );
 };
 

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure, Button, useColorModeValue, chakra, Stack, ButtonGroup, Flex, IconButton, Spacer } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
-const GameOver: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, onClose }) => {
+const GameOver: React.FC<{ isOpen: boolean; onClose: () => void, timeElapsed: number }> = ({ isOpen, onClose, timeElapsed }) => {
     const bgColor = useColorModeValue('orange.50', 'gray.700');
     const ButtonBg = useColorModeValue('orange.100', 'blue.200');
     const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
@@ -16,6 +16,21 @@ const GameOver: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, 
             },
         },
     });
+
+    const formatTime = (time: number) => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+
+        if (minutes > 0) {
+            return `${minutes} minutes and ${seconds} seconds`;
+        }
+
+        if (time === 1) {
+            return `${seconds} second`;
+        }
+
+        return `${seconds} seconds`;
+    };
 
     return (
         <Modal isOpen={isOpen} onClose={onClose} isCentered size='xl'>
@@ -32,7 +47,7 @@ const GameOver: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isOpen, 
                             Game over! Looks like the AI caught you laughing, try to conceal your smile better next time!
                         </Text>
                         <Text fontWeight='bold'>
-                            You lasted: 50 seconds {/* Place holder for now */}
+                            You lasted: {formatTime(timeElapsed)}
                         </Text>
                     </Stack>
                 </ModalBody>

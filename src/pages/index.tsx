@@ -15,8 +15,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
-  const blueGradient = useColorModeValue("blue.100", "blue.800");
-  const purpleGradient = useColorModeValue("purple.200", "purple.800");
 
   {/* If you delete this I will be so mad istg */ }
   console.log(`           What are you doing here?
@@ -31,16 +29,13 @@ export default function Home() {
 
   return (
     <ChakraProvider theme={theme}>
-      {/* Title and Favicon */}
       <Head>
         <title>Chuckle Challenge</title>
         <link rel='icon' href='/Chuckle Challenge Favicon.ico' />
       </Head>
 
-      {/* Header */}
       <Header />
 
-      {/* Main Body */}
       <Container maxWidth='container.lg' centerContent pt={150}>
         <Stack spacing={20}>
           <Hero />
@@ -55,7 +50,6 @@ export default function Home() {
           <HowTo />
           <About />
         </Stack>
-
       </Container>
 
       {/* Footer */}
