@@ -21,6 +21,10 @@ const HowTo: React.FC = () => {
         navigator.mediaDevices.getUserMedia({ video: true });
     };
 
+    const handleButtonClick = () => {
+        window.scrollTo({ top: 280, behavior: "smooth" });
+    };
+
     return (
         <Center flexDirection='column' gap={20}>
             <FadeInUp index={0}>
@@ -54,7 +58,7 @@ const HowTo: React.FC = () => {
                                 <Text color={CardText}>Search for a funny video or let us pick one at random for you from YouTube.</Text>
                             </CardBody>
                             <CardFooter>
-                                <CustomButton bg={ButtonBg} color='gray.800'>Choose Video</CustomButton>
+                                <CustomButton bg={ButtonBg} color='gray.800' onClick={handleButtonClick}>Choose Video</CustomButton>
                             </CardFooter>
                         </Card>
                     </Hover>
@@ -69,7 +73,7 @@ const HowTo: React.FC = () => {
                                 <Text color={CardText}>Activate the AI and begin the timer with the 'Start' button and start playing!</Text>
                             </CardBody>
                             <CardFooter>
-                                <CustomButton bg={ButtonBg} color='gray.800'>Start</CustomButton>
+                                <CustomButton bg={ButtonBg} color='gray.800' onClick={handleButtonClick}>Start</CustomButton>
                             </CardFooter>
                         </Card>
                     </Hover>

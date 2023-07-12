@@ -1,8 +1,6 @@
 import { Button, Flex, Spacer, chakra, useColorModeValue } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 import FadeInUp from "@/animations/FadeInUp";
-import Timer from "./Timer";
-import { useState } from "react";
 
 const Buttons: React.FC = () => {
     const ButtonBg = useColorModeValue('orange.100', 'blue.200');
