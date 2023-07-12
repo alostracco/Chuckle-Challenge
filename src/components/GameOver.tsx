@@ -20,13 +20,25 @@ const GameOver: React.FC<{ isOpen: boolean; onClose: () => void, timeElapsed: nu
     const formatTime = (time: number) => {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
+        
+        if (time === 1) {
+            return `${seconds} second`;
+        }
+
+        if (minutes === 1 && seconds === 1) {
+            return `${minutes} minute and ${seconds} second`; 
+        }
+
+        if (minutes === 1) {
+            return `${minutes} minute and ${seconds} seconds`; 
+        }
+
+        if (minutes > 1 && seconds === 1) {
+            return `${minutes} minutes and ${seconds} second`;  
+        }
 
         if (minutes > 0) {
             return `${minutes} minutes and ${seconds} seconds`;
-        }
-
-        if (time === 1) {
-            return `${seconds} second`;
         }
 
         return `${seconds} seconds`;
