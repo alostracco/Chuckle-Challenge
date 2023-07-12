@@ -9,7 +9,7 @@ from flask_cors import CORS
 import io
 
 # Load trained CNN model
-model = tf.keras.models.load_model('FER.h5')
+model = tf.keras.models.load_model('../chucklechallenge/src/pages/api/FER.h5')
 
 def preprocess_image(base64_string):
     # Decode the base64 string
