@@ -1,6 +1,6 @@
 import { Grid, GridItem, Box, useColorModeValue } from "@chakra-ui/react";
 import { FaReact, FaPython } from "react-icons/fa";
-import { SiNextdotjs, SiTypescript, SiChakraui, SiTailwindcss, SiFramer, SiTensorflow, SiFlask } from "react-icons/si"; // lowercase
+import { SiNextdotjs, SiTypescript, SiChakraui, SiTailwindcss, SiFramer, SiTensorflow, SiFlask } from "react-icons/si";
 import Hover from "@/animations/Hover";
 import TabFadeInUp from "@/animations/TabFadeInUp";
 

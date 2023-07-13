@@ -73,8 +73,8 @@ const WebcamFeed = () => {
   };
 
   const webcamRef = useRef<Webcam>(null);
-  const containerRef = useRef(null);
-  const [hasPermission, setHasPermission] = useState(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [hasPermission, setHasPermission] = useState(false);
 
   const [containerDimensions, setContainerDimensions] = useState({
     width: '16rem',
@@ -82,10 +82,11 @@ const WebcamFeed = () => {
   });
 
   const videoConstraints = {
-    width: containerDimensions.width,
-    height: containerDimensions.height,
+    width: parseInt(containerDimensions.width),
+    height: parseInt(containerDimensions.height),
     facingMode: 'user',
   };
+
 
   const captureFrame = () => {
     activated = true;
@@ -123,7 +124,7 @@ const WebcamFeed = () => {
   };
 
   useEffect(() => {
-    navigator.permissions.query({ name: 'camera' }).then((result) => {
+    navigator.permissions.query({ name: 'camera' as PermissionName }).then((result) => {
       handleUserMedia(result.state);
       result.onchange = () => {
         handleUserMedia(result.state);
@@ -135,7 +136,7 @@ const WebcamFeed = () => {
     const updateContainerDimensions = () => {
       if (containerRef.current) {
         const { width, height } = containerRef.current.getBoundingClientRect();
-        setContainerDimensions({ width, height });
+        setContainerDimensions({ width: `${width}px`, height: `${height}px` });
       }
     };
 
