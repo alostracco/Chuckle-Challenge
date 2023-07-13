@@ -1,7 +1,7 @@
 {
     "functions": {
       "api/*": {
-        "runtime": "@now/python"
+        "runtime": "python3.7"
       }
     },
     "rewrites": [
