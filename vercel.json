@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "src/pages/api/FER_API.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "src/pages/api/FER_API.py"
+        }
+    ]
+}
