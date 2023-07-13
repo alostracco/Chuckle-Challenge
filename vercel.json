@@ -1,12 +1,7 @@
 {
-  "functions": {
-    "api/*": {
-      "runtime": "@vercel/python"
-    }
-  },
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/(.*)",
       "destination": "/api/FER_API.py"
     }
   ]
