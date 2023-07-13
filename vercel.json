@@ -1,14 +1,13 @@
 {
-    "functions": {
-      "api/*": {
-        "runtime": "python3.7"
-      }
-    },
-    "rewrites": [
-      {
-        "source": "/api/(.*)",
-        "destination": "/api/FER_API.py"
-      }
-    ]
-  }
-  
+  "functions": {
+    "api/*": {
+      "runtime": "@vercel/python"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/FER_API.py"
+    }
+  ]
+}
