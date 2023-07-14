@@ -1,8 +1,14 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/FER_API.py"
-    }
-  ]
-}
+    "functions": {
+      "api/FER_API.py": {
+        "runtime": "python3.9"
+      }
+    },
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/api/FER_API.py"
+      }
+    ]
+  }
+  
