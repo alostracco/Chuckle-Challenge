@@ -1,19 +1,15 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import JSONResponse
-from pydantic import BaseModel
+from flask import Flask, request, jsonify
 import numpy as np
 import cv2
 from PIL import Image
-import io
+from io import BytesIO
 import base64
 import tensorflow as tf
-from fastapi.middleware.cors import CORSMiddleware
+from flask_cors import CORS
+import io
 
 # Load trained CNN model
 model = tf.keras.models.load_model('../chucklechallenge/src/pages/api/FER.h5')
-
-class ImageData(BaseModel):
-    image: str
 
 def preprocess_image(base64_string):
     # Decode the base64 string
@@ -31,19 +27,19 @@ def preprocess_image(base64_string):
     # Convert the PIL Image to a numpy array
     image_array = np.array(image)
 
-    # Resize the image to match the input size expected by the CNN model
+    # Resize the image to match the input size expected by CNN model
     image = cv2.resize(image_array, (48, 48))
 
     # Normalize image
     image = image / 255.0
 
-    # Expand dimensions to match the input shape expected by the CNN model
+    # Expand dimensions to match the input shape expected by CNN model
     image = np.expand_dims(image, axis=0)
 
     return image
 
 def predict_facial_expression(image):
-    # Pass preprocessed image through the CNN model
+    # Pass preprocessed image through CNN model
     prediction = model.predict(image)
     # Get predicted facial expression
     EMOTIONS = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
@@ -51,20 +47,16 @@ def predict_facial_expression(image):
 
     return facial_expression
 
-# Create FastAPI app
-app = FastAPI()
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Create Flask app
+app = Flask(__name__)
+CORS(app)
 
 # Define route to receive POST requests
-@app.post('/predict')
-async def predict(request: Request, data: ImageData):
+@app.route('/predict', methods=['POST'])
+def predict():
     # Get the base64 string from the request body
-    base64_string = data.image
+    data = request.get_json()
+    base64_string = data['image']
 
     # Preprocess image
     processed_image = preprocess_image(base64_string)
@@ -73,9 +65,8 @@ async def predict(request: Request, data: ImageData):
     facial_expression = predict_facial_expression(processed_image)
 
     # Return predicted facial expression as JSON response
-    return JSONResponse(content={'facial_expression': facial_expression})
+    return jsonify({'facial_expression': facial_expression})
 
-# Run the FastAPI app
+# Run Flask app
 if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    app.run(port=5000)

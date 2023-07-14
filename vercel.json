@@ -1,15 +1,8 @@
 {
-    "functions": {
-      "api/FER_API.py": {
-        "runtime": "vercel.python.runtime.pip-requirements-3.9",
-        "memory": 1024
-      }
-    },
     "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/api/FER_API.py"
-      }
+        {
+            "source": "/(.*)",
+            "destination": "/api/FER_API.py"
+        }
     ]
-  }
-  
+}
