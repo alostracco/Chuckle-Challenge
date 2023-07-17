@@ -8,7 +8,7 @@
 
     "routes": [
         {
-          "src": "/api/predict",
+          "src": "/(.*)",
           "methods": ["POST"],
           "dest": "/api/predict",
           "headers": {
