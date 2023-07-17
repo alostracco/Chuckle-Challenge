@@ -4,5 +4,18 @@
             "source": "/(.*)",
             "destination": "/api/FER_API.py"
         }
-    ]
+    ],
+
+    "routes": [
+        {
+          "src": "/api/predict",
+          "methods": ["POST"],
+          "dest": "/api/predict",
+          "headers": {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type"
+          }
+        }
+      ]
 }
