@@ -1,15 +1,14 @@
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 import numpy as np
 import cv2
 from PIL import Image
-from io import BytesIO
 import base64
 import tensorflow as tf
 from flask_cors import CORS
 import io
 
 # Load trained CNN model
-model = tf.keras.models.load_model('../chucklechallenge/src/pages/api/FER.h5')
+model = tf.keras.models.load_model('FER.h5')
 
 def preprocess_image(base64_string):
     # Decode the base64 string
@@ -17,7 +16,7 @@ def preprocess_image(base64_string):
 
     # Remove the WebP prefix
     image_data = base64_string.split(",")[1]
-    
+
     # Decode the base64 data into binary
     binary_data = base64.b64decode(image_data)
 
@@ -27,21 +26,21 @@ def preprocess_image(base64_string):
     # Convert the PIL Image to a numpy array
     image_array = np.array(image)
 
-    # Resize the image to match the input size expected by CNN model
+    # Resize the image to match the input size expected by the CNN model
     image = cv2.resize(image_array, (48, 48))
 
     # Normalize image
     image = image / 255.0
 
-    # Expand dimensions to match the input shape expected by CNN model
+    # Expand dimensions to match the input shape expected by the CNN model
     image = np.expand_dims(image, axis=0)
 
     return image
 
 def predict_facial_expression(image):
-    # Pass preprocessed image through CNN model
+    # Pass preprocessed image through the CNN model
     prediction = model.predict(image)
-    # Get predicted facial expression
+    # Get the predicted facial expression
     EMOTIONS = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
     facial_expression = EMOTIONS[np.argmax(prediction)]
 
@@ -52,7 +51,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Define route to receive POST requests
-@app.route('/predict', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 def predict():
     # Get the base64 string from the request body
     data = request.get_json()
@@ -67,6 +66,9 @@ def predict():
     # Return predicted facial expression as JSON response
     return jsonify({'facial_expression': facial_expression})
 
-# Run Flask app
-if __name__ == '__main__':
-    app.run(port=5000)
+# Wrap the Flask app with serverless function handler
+def handler(request):
+    if request.method == 'POST':
+        return predict()
+    else:
+        return 'Method not allowed', 405

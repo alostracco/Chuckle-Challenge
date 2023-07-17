@@ -94,7 +94,7 @@ const WebcamFeed = () => {
       const imageSrc = webcamRef.current.getScreenshot();
 
       // Make an HTTP POST request to the Flask API
-      fetch('https://chuckle-challenge.vercel.app/predict', {
+      fetch('https://chuckle-challenge.vercel.app/api/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
