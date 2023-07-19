@@ -66,9 +66,6 @@ def predict():
     # Return predicted facial expression as JSON response
     return jsonify({'facial_expression': facial_expression})
 
-# Run Flask app on serverless function handler
-def handler(request):
-    if request.method == 'POST':
-        return predict()
-    else:
-        return 'Method not allowed', 405
+# Run Flask app
+if __name__ == '__main__':
+    app.run(port=5000)
