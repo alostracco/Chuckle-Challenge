@@ -94,7 +94,7 @@ const WebcamFeed = () => {
       const imageSrc = webcamRef.current.getScreenshot();
 
       // Make an HTTP POST request to the Flask API backend
-      fetch('http://3.14.9.79/predict', {
+      fetch('https://chucklechallengebackend.link/predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
