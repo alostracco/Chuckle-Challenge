@@ -152,7 +152,7 @@ const WebcamFeed = () => {
     let interval: string | number | NodeJS.Timeout | undefined;
 
     if (startTimer) {
-      interval = setInterval(captureFrame, 400);
+      interval = setInterval(captureFrame, 500);
     }
     return () => {
       clearInterval(interval);
