@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Box, Button, Flex, Input, chakra, useColorModeValue } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
-import youtube from "@/pages/api/youtube";
+import Youtube from "@/pages/api/Youtube";
 
 interface SearchProps {
     show: boolean;
@@ -27,7 +27,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
 
     const handleSearchClick = async () => {
         try {
-            const response = await youtube.get("/search", {
+            const response = await Youtube.get("/search", {
                 params: {
                     q: searchInput
                 }

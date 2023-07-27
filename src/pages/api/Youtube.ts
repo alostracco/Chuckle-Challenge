@@ -1,7 +1,7 @@
 import axios from 'axios';
 const KEY = process.env.YOUTUBE_API_KEY;
 
-export default axios.create({
+const Youtube = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3/search',
     params: {
         part: 'snippet',
@@ -9,3 +9,5 @@ export default axios.create({
         key: KEY
     }
 })
+
+export default Youtube;
