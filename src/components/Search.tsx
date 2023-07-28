@@ -27,16 +27,15 @@ const Search: React.FC<SearchProps> = ({ show }) => {
 
     const handleSearchClick = async () => {
         try {
-            const response = await Youtube.get("/search", {
+            const response = await Youtube.get('', {
                 params: {
-                    q: searchInput
-                }
+                    query: searchInput, // Pass the search input as the 'query' parameter for the API request
+                },
             });
 
             setVideos(response.data.items);
-        }
-        catch (error) {
-            console.error("Error fetching videos:", error);
+        } catch (error) {
+            console.error('Error fetching videos:', error);
         }
     };
 
