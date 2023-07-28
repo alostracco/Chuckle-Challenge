@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button, Card, CardBody, Flex, Image, Input, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Divider, Flex, Heading, Image, Input, chakra, useColorModeValue } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 import Youtube from "@/pages/api/Youtube";
 
@@ -50,6 +50,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
             shadow='md'
             borderRadius='md'
             padding={5}
+            width='48rem'
         >
             <Flex flexDirection='column' gap={10}>
                 <Flex flexDirection='row' gap={3}>
@@ -74,17 +75,24 @@ const Search: React.FC<SearchProps> = ({ show }) => {
                     </Hover>
                 </Flex>
 
-                <Flex flexDirection='row' gap={20}>
+                <Heading as='h2' size='md' fontWeight='bold' >
+                    Search Results:
+                </Heading>
+
+                <Divider />
+
+                <Flex flexDirection='column' gap={10}>
                     {videos.map((video) => (
                         <Card key={video.id.videoId}>
                             <CardBody>
                                 <Image
                                     src={video.snippet.thumbnails.default.url}
                                     alt={video.snippet.title}
-                                    borderRadius='lg'
+                                    borderRadius='md'
                                     onClick={handleVideoClick}
                                     style={{ cursor: "pointer" }}
                                     aspectRatio={1}
+                                    boxSize='8rem'
                                 />
                             </CardBody>
                         </Card>

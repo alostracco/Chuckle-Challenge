@@ -8,7 +8,7 @@ from flask_cors import CORS
 import io
 
 # Load trained CNN model
-model = tf.keras.models.load_model('../chucklechallenge/src/pages/api/FER.h5')
+model = tf.keras.models.load_model('FER.h5')
 
 def preprocess_image(base64_string):
     # Decode the base64 string
@@ -68,4 +68,4 @@ def predict():
 
 # Run Flask app
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(host='0.0.0.0')
