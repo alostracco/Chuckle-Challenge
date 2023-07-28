@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Button, Flex, Input, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Flex, Image, Input, chakra, useColorModeValue } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 import Youtube from "@/pages/api/Youtube";
 
@@ -39,6 +39,10 @@ const Search: React.FC<SearchProps> = ({ show }) => {
         }
     };
 
+    const handleVideoClick: React.MouseEventHandler<HTMLImageElement> = (event) => {
+
+    }
+
     return (
         <Box
             display={show ? "initial" : "none"}
@@ -46,32 +50,51 @@ const Search: React.FC<SearchProps> = ({ show }) => {
             shadow='md'
             borderRadius='md'
             padding={5}
-            width='48rem'
         >
-            <Flex gap={3}>
-                <Input
-                    placeholder="Search Youtube..."
-                    _placeholder={{ opacity: 0.7, color: 'gray.800' }}
-                    focusBorderColor='transparent'
-                    borderColor="transparent"
-                    isInvalid
-                    errorBorderColor="transparent"
-                    bg={SearchBg}
-                    size="md"
-                    width='17rem'
-                    color='gray.800'
-                    fontWeight='semibold'
-                    onChange={(e) => setSearchInput(e.target.value)}
-                />
-                <Hover>
-                    <CustomButton bg={SearchBg} onClick={handleSearchClick}>
-                        Search
-                    </CustomButton>
-                </Hover>
+            <Flex flexDirection='column' gap={10}>
+                <Flex flexDirection='row' gap={3}>
+                    <Input
+                        placeholder="Search Youtube..."
+                        _placeholder={{ opacity: 0.7, color: 'gray.800' }}
+                        focusBorderColor='transparent'
+                        borderColor="transparent"
+                        isInvalid
+                        errorBorderColor="transparent"
+                        bg={SearchBg}
+                        size="md"
+                        width='17rem'
+                        color='gray.800'
+                        fontWeight='semibold'
+                        onChange={(e) => setSearchInput(e.target.value)}
+                    />
+                    <Hover>
+                        <CustomButton bg={SearchBg} onClick={handleSearchClick}>
+                            Search
+                        </CustomButton>
+                    </Hover>
+                </Flex>
 
-                <Flex direction="column" mt={4}>
+                <Flex flexDirection='row' gap={20}>
                     {videos.map((video) => (
-                        <Flex key={video.id.videoId} alignItems="center" mb={3}>
+                        <Card key={video.id.videoId}>
+                            <CardBody>
+                                <Image
+                                    src={video.snippet.thumbnails.default.url}
+                                    alt={video.snippet.title}
+                                    borderRadius='lg'
+                                    onClick={handleVideoClick}
+                                    style={{ cursor: "pointer" }}
+                                    aspectRatio={1}
+                                />
+                            </CardBody>
+                        </Card>
+                    ))}
+                </Flex>
+
+
+                <Flex direction="row" mt={4}>
+                    {videos.map((video) => (
+                        <Flex key={video.id.videoId} alignItems="center" flexDirection='column' mb={3}>
                             <a
                                 href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
                                 target="_blank"
