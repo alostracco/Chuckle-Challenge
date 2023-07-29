@@ -13,6 +13,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
     const BoxBg = useColorModeValue('#fff7e6', 'gray.700');
     const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
     const TextColor = useColorModeValue('blackAlpha.600', 'gray.400');
+    const DividerColor = useColorModeValue('gray.500', 'gray.400');
 
     const CustomButton = chakra(Button, {
         baseStyle: {
@@ -42,7 +43,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
     };
 
     const handleVideoClick: React.MouseEventHandler<HTMLImageElement> = (event) => {
-
+        
     }
 
     return (
@@ -81,7 +82,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
                     Search Results:
                 </Heading>
 
-                <Divider />
+                <Divider borderColor={DividerColor} />
 
                 <Flex flexDirection='row' overflowX='auto' gap={0} mt={5}>
                     {videos.map((video) => (
