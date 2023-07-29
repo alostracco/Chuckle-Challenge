@@ -14,8 +14,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const response = await axios.get(BASE_URL, {
       params: {
         part: 'snippet',
-        maxResults: 5,
+        maxResults: 25,
         q: query,
+        type: 'video',
         key: KEY,
       },
     });

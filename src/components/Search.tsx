@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Box, Button, Card, CardBody, Divider, Flex, Heading, Image, Input, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Card, CardBody, Divider, Flex, Heading, Image, Input, Stack, Text, chakra, useColorModeValue } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 import Youtube from "@/pages/api/Youtube";
+import he from 'he';
 
 interface SearchProps {
     show: boolean;
@@ -11,6 +12,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
     const SearchBg = useColorModeValue('orange.100', 'blue.200');
     const BoxBg = useColorModeValue('#fff7e6', 'gray.700');
     const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
+    const TextColor = useColorModeValue('blackAlpha.600', 'gray.400');
 
     const CustomButton = chakra(Button, {
         baseStyle: {
@@ -52,7 +54,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
             padding={5}
             width='48rem'
         >
-            <Flex flexDirection='column' gap={10}>
+            <Flex flexDirection='column' gap={5}>
                 <Flex flexDirection='row' gap={3}>
                     <Input
                         placeholder="Search Youtube..."
@@ -81,44 +83,37 @@ const Search: React.FC<SearchProps> = ({ show }) => {
 
                 <Divider />
 
-                <Flex flexDirection='column' gap={10}>
+                <Flex flexDirection='row' overflowX='auto' gap={0} mt={5}>
                     {videos.map((video) => (
-                        <Card key={video.id.videoId}>
-                            <CardBody>
-                                <Image
-                                    src={video.snippet.thumbnails.default.url}
-                                    alt={video.snippet.title}
-                                    borderRadius='md'
-                                    onClick={handleVideoClick}
-                                    style={{ cursor: "pointer" }}
-                                    aspectRatio={1}
-                                    boxSize='8rem'
-                                />
+                        <Card key={video.id.videoId} bg='transparent' shadow='none' minWidth='19rem'>
+                            <CardBody alignSelf='center'>
+                                <Flex flexDirection='column' gap={2}>
+                                    <Image
+                                        src={video.snippet.thumbnails.high.url}
+                                        alt={video.snippet.title}
+                                        borderRadius='md'
+                                        onClick={handleVideoClick}
+                                        style={{ cursor: "pointer" }}
+                                        width='16rem'
+                                        height='9rem'
+                                        objectFit='cover'
+                                    />
+                                    <Stack spacing={1} maxWidth='16rem'>
+                                        <Text fontSize='md' fontWeight='semibold' lineHeight={5}>
+                                            {he.decode(video.snippet.title)}
+                                        </Text>
+                                        <Flex>
+                                            <Text fontSize='xs' fontWeight='semibold' color={TextColor}>
+                                                {he.decode(video.snippet.channelTitle)} •&nbsp;
+                                            </Text>
+                                            <Text fontSize='xs' fontWeight='semibold' color={TextColor}>
+                                                {video.snippet.publishedAt.substring(0, 10)}
+                                            </Text>
+                                        </Flex>
+                                    </Stack>
+                                </Flex>
                             </CardBody>
                         </Card>
-                    ))}
-                </Flex>
-
-
-                <Flex direction="row" mt={4}>
-                    {videos.map((video) => (
-                        <Flex key={video.id.videoId} alignItems="center" flexDirection='column' mb={3}>
-                            <a
-                                href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ marginRight: "8px" }}
-                                onClick={() => console.log(video.id.videoId)}
-                            >
-                                <img
-                                    src={video.snippet.thumbnails.default.url}
-                                    alt={video.snippet.title}
-                                    width="120"
-                                    height="90"
-                                />
-                            </a>
-                            <span>{video.snippet.title}</span>
-                        </Flex>
                     ))}
                 </Flex>
             </Flex>
