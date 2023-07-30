@@ -4,7 +4,11 @@ import FadeInUp from "@/animations/FadeInUp";
 import Search from "./Search";
 import { useState } from "react";
 
-const Buttons: React.FC = () => {
+interface ButtonsProps {
+    onVideoClick: (videoId: string) => void;
+}
+
+const Buttons: React.FC<ButtonsProps> = ({ onVideoClick }) => {
     const ButtonBg = useColorModeValue('orange.100', 'blue.200');
     const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
 
@@ -24,6 +28,10 @@ const Buttons: React.FC = () => {
         setShowSearch((prevShowSearch) => !prevShowSearch);
     };
 
+    const handleVideoClick = (videoId: string) => {
+        onVideoClick(videoId);
+    }
+
     return (
         <Flex flexDirection='column' gap={5}>
             <Flex gap={5} mt={-14}>
@@ -42,7 +50,7 @@ const Buttons: React.FC = () => {
                     </Hover>
                 </FadeInUp>
             </Flex>
-            <Search show={showSearch} />
+            <Search show={showSearch} onVideoClick={handleVideoClick} />
         </Flex>
     );
 };

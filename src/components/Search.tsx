@@ -6,9 +6,10 @@ import he from 'he';
 
 interface SearchProps {
     show: boolean;
+    onVideoClick: (videoId: string) => void;
 }
 
-const Search: React.FC<SearchProps> = ({ show }) => {
+const Search: React.FC<SearchProps> = ({ show, onVideoClick }) => {
     const SearchBg = useColorModeValue('orange.100', 'blue.200');
     const BoxBg = useColorModeValue('#fff7e6', 'gray.700');
     const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
@@ -42,8 +43,8 @@ const Search: React.FC<SearchProps> = ({ show }) => {
         }
     };
 
-    const handleVideoClick: React.MouseEventHandler<HTMLImageElement> = (event) => {
-        
+    const handleVideoClick = (videoId: string) => {
+        onVideoClick(videoId);
     }
 
     return (
@@ -93,7 +94,7 @@ const Search: React.FC<SearchProps> = ({ show }) => {
                                         src={video.snippet.thumbnails.high.url}
                                         alt={video.snippet.title}
                                         borderRadius='md'
-                                        onClick={handleVideoClick}
+                                        onClick={() => handleVideoClick(video.id.videoId)}
                                         style={{ cursor: "pointer" }}
                                         width='16rem'
                                         height='9rem'

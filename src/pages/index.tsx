@@ -9,6 +9,7 @@ import HowTo from '@/components/HowTo'
 import WebcamFeed from '@/components/Webcam'
 import About from '@/components/About'
 import Buttons from '@/components/Buttons'
+import { useState } from 'react'
 
 export default function Home() {
 
@@ -23,6 +24,11 @@ export default function Home() {
   `
   );
 
+  const [videoID, setVideoID] = useState("rokGy0huYEA");
+  const handleVideoClick = (videoId: string) => {
+    setVideoID(videoId);
+  } 
+
   return (
     <ChakraProvider theme={theme}>
       <Head>
@@ -36,13 +42,13 @@ export default function Home() {
         <Stack spacing={20}>
           <Hero />
           <Flex gap={30}>
-            <YoutubeEmbed embedId="rokGy0huYEA" />
+            <YoutubeEmbed embedId={videoID} />
             <Spacer />
             <Center>
               <WebcamFeed />
             </Center>
           </Flex>
-          <Buttons />
+          <Buttons onVideoClick={handleVideoClick} />
           <HowTo />
           <About />
         </Stack>
