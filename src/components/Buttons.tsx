@@ -1,4 +1,4 @@
-import { Button, Flex, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Button, Flex, chakra, useColorModeValue, useDisclosure } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 import FadeInUp from "@/animations/FadeInUp";
 import Search from "./Search";
@@ -23,10 +23,10 @@ const Buttons: React.FC<ButtonsProps> = ({ onVideoClick }) => {
         },
     });
 
-    const [showSearch, setShowSearch] = useState(false);
+    const { isOpen, onToggle } = useDisclosure();
 
     const toggleSearch = () => {
-        setShowSearch((prevShowSearch) => !prevShowSearch);
+        onToggle();
     };
 
     const handleVideoClick = (videoId: string) => {
@@ -51,7 +51,7 @@ const Buttons: React.FC<ButtonsProps> = ({ onVideoClick }) => {
                 <FadeInUp index={0}>
                     <Hover>
                         <CustomButton onClick={toggleSearch}>
-                            {showSearch ? "Close Search" : "Search Videos"}
+                            {isOpen ? "Close Search" : "Search Videos"}
                         </CustomButton>
                     </Hover>
                 </FadeInUp>
@@ -63,7 +63,7 @@ const Buttons: React.FC<ButtonsProps> = ({ onVideoClick }) => {
                     </Hover>
                 </FadeInUp>
             </Flex>
-            <Search show={showSearch} onVideoClick={handleVideoClick} />
+            <Search isOpen={isOpen} onVideoClick={handleVideoClick} />
         </Flex>
     );
 };
