@@ -1,11 +1,11 @@
 import FadeInUp from '@/animations/FadeInUp';
 import Hover from '@/animations/Hover';
-import { Box, Button, Card, CardBody, Center, Flex, Spacer, Stack, Text, chakra, useColorMode, useColorModeValue, useDisclosure, useToast } from '@chakra-ui/react';
+import { Box, Button, Card, CardBody, Center, Flex, Stack, Text, chakra, useColorModeValue, useToast } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
 import Webcam from 'react-webcam';
 import Timer from './Timer';
 
-const WebcamFeed = () => {
+const WebcamFeed: React.FC = () => {
 
   const ButtonBg = useColorModeValue('orange.100', 'blue.200');
   const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');

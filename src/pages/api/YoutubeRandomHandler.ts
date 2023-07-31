@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
+    const response: AxiosResponse<any> = await axios.get('https://www.googleapis.com/youtube/v3/search', {
       params: {
         part: 'snippet',
         q: 'funny',

@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-const Random = axios.create({
+const Random: AxiosInstance = axios.create({
   baseURL: '/api/YoutubeRandomHandler',
 });
 

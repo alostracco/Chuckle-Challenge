@@ -3,7 +3,7 @@ import { ButtonGroup, IconButton, Image } from "@chakra-ui/react";
 import ThemeToggle from "./ThemeToggle";
 import { FaGithub } from "react-icons/fa";
 
-const Header = () => {
+const Header: React.FC = () => {
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };

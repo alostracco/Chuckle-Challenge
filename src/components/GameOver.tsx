@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure, Button, useColorModeValue, chakra, Stack, ButtonGroup, Flex, IconButton, Spacer } from "@chakra-ui/react";
+import React from "react";
+import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Button, useColorModeValue, chakra, Stack, ButtonGroup, Flex, IconButton } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const GameOver: React.FC<{ isOpen: boolean; onClose: () => void, timeElapsed: number }> = ({ isOpen, onClose, timeElapsed }) => {

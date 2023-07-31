@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const KEY = process.env.YOUTUBE_API_KEY;
-const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
+const KEY: string | undefined = process.env.YOUTUBE_API_KEY;
+const BASE_URL: string = 'https://www.googleapis.com/youtube/v3/search';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
@@ -11,7 +11,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Missing query parameter.' });
     }
 
-    const response = await axios.get(BASE_URL, {
+    if (!KEY) {
+      return res.status(500).json({ error: 'YouTube API key not provided.' });
+    }
+
+    const response: AxiosResponse<any> = await axios.get(BASE_URL, {
       params: {
         part: 'snippet',
         maxResults: 25,

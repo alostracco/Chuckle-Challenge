@@ -1,4 +1,4 @@
-import { easeOut, motion, Transition, Variants } from "framer-motion";
+import { motion, Transition, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ReactNode } from "react";
 

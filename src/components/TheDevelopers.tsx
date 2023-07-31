@@ -1,7 +1,7 @@
-import { Box, Card, CardBody, CardHeader, Center, Flex, Link, Stack, chakra, Image, Text, useColorModeValue, ButtonGroup, IconButton } from "@chakra-ui/react"
+import { Box, Flex, Stack, Image, Text, useColorModeValue, ButtonGroup, IconButton } from "@chakra-ui/react"
 import Hover from "@/animations/Hover";
 import TabFadeInUp from "@/animations/TabFadeInUp";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const DURIAN_IMAGE_LINK = "https://www.google.com/search?q=durian&sxsrf=ALeKk03lX6LGG5MPefvOxxgUY-bAMZomsw:1628566732329&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjX48rsw6XyAhUHVN8KHUZsBn4Q_AUoAXoECAEQAw&cshid=1628566747467052&biw=2560&bih=1297&dpr=1.5";
 

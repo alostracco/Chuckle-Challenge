@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-const Youtube = axios.create({
+const Youtube: AxiosInstance = axios.create({
   baseURL: '/api/YoutubeRequestHandler',
 });
 

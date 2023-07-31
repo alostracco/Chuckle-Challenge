@@ -1,11 +1,11 @@
-import { StyleFunctionProps, mode } from '@chakra-ui/theme-tools';
-import { extendTheme, type ThemeConfig } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
+import { extendTheme, ThemeConfig } from '@chakra-ui/react';
 
 const config: ThemeConfig = {
   initialColorMode: 'system',
   useSystemColorMode: true,
   disableTransitionOnChange: false,
-}
+};
 
 const styles = {
   global: (props: Record<string, any>) => ({
@@ -17,8 +17,8 @@ const styles = {
       backgroundAttachment: `fixed`,
       backgroundSize: `50px 50px`,
       overflowX: 'hidden',
-      transitionProperty: "all",
-      transitionDuration: "normal",
+      transitionProperty: 'all',
+      transitionDuration: 'normal',
     },
   }),
 };
@@ -29,7 +29,6 @@ const components = {
 
 const theme = extendTheme({
   config,
-  components,
   styles,
 });
 

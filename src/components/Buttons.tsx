@@ -1,4 +1,4 @@
-import { Button, Flex, Spacer, chakra, useColorModeValue } from "@chakra-ui/react";
+import { Button, Flex, chakra, useColorModeValue } from "@chakra-ui/react";
 import Hover from "@/animations/Hover";
 import FadeInUp from "@/animations/FadeInUp";
 import Search from "./Search";

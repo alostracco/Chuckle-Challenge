@@ -2,7 +2,7 @@ import { IconButton, chakra, useColorMode, useColorModeValue } from '@chakra-ui/
 import React from 'react';
 import { RiMoonFill, RiSunLine } from 'react-icons/ri';
 
-const ThemeToggle = () => {
+const ThemeToggle: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const CustomBg = useColorModeValue('rgba(251,211,141,0.5)', 'whiteAlpha.200');
   const CustomHoverBg = useColorModeValue('rgba(251,211,141,0.8)', 'whiteAlpha.300');
