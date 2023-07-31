@@ -16,7 +16,7 @@ def preprocess_image(base64_string):
 
     # Remove the WebP prefix
     image_data = base64_string.split(",")[1]
-    
+
     # Decode the base64 data into binary
     binary_data = base64.b64decode(image_data)
 
@@ -26,16 +26,29 @@ def preprocess_image(base64_string):
     # Convert the PIL Image to a numpy array
     image_array = np.array(image)
 
+    # Detect face using Casecade Classifier
+    face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    faces = face_classifier.detectMultiScale(image_array, scaleFactor=1.1, minNeighbors=5, minSize=(40, 40))
+
+    # Crop image to detected face region
+    if len(faces) > 0:
+        (x, y, w, h) = faces[0]
+        image_array = image_array[y:y + h, x:x + w]
+
+    # Convert the BGR image to RGB for further processing
+    image_array = cv2.cvtColor(image_array, cv2.COLOR_BGR2RGB)
+
     # Resize the image to match the input size expected by CNN model
-    image = cv2.resize(image_array, (48, 48))
+    image_array = cv2.resize(image_array, (48, 48))
 
     # Normalize image
-    image = image / 255.0
+    image_array = image_array / 255.0
 
     # Expand dimensions to match the input shape expected by CNN model
-    image = np.expand_dims(image, axis=0)
+    image_array = np.expand_dims(image_array, axis=0)
 
-    return image
+    return image_array
+
 
 def predict_facial_expression(image):
     # Pass preprocessed image through CNN model
