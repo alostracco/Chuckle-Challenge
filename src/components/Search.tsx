@@ -54,7 +54,7 @@ const Search: React.FC<SearchProps> = ({ isOpen, onVideoClick }) => {
     }
 
     return (
-        <Collapse in={isOpen} animateOpacity>
+        <Collapse in={isOpen} animateOpacity style={{ overflow: "visible" }}>
             <Box
                 bg={BoxBg}
                 shadow='md'
