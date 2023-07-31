@@ -43,6 +43,12 @@ const Search: React.FC<SearchProps> = ({ show, onVideoClick }) => {
         }
     };
 
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            handleSearchClick();
+        }
+    };
+
     const handleVideoClick = (videoId: string) => {
         onVideoClick(videoId);
     }
@@ -71,6 +77,7 @@ const Search: React.FC<SearchProps> = ({ show, onVideoClick }) => {
                         color='gray.800'
                         fontWeight='semibold'
                         onChange={(e) => setSearchInput(e.target.value)}
+                        onKeyDown={handleKeyPress}
                     />
                     <Hover>
                         <CustomButton bg={SearchBg} onClick={handleSearchClick}>
