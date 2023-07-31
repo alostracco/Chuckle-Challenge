@@ -1,8 +1,15 @@
 import FadeInUp from '@/animations/FadeInUp';
-import { ButtonGroup, Container, IconButton, Stack, Text, Image, Flex, Spacer, Link } from '@chakra-ui/react'
-import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { ButtonGroup, Container, IconButton, Stack, Text, Image, Flex, Spacer, Link } from '@chakra-ui/react';
+import { FaFacebook, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer: React.FC = () => {
+    const websiteUrl = 'https://www.chucklechallenge.com';
+    const shareText = 'Chuckle Challenge: The AI tracking Try Not To Laugh Challenge!';
+
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(websiteUrl)}`;
+    const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(websiteUrl)}`;
+    const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(websiteUrl)}&title=${encodeURIComponent(shareText)}`;
+
     return (
         <Container as="footer" role="contentinfo" py={{ base: '12', md: '16' }} maxWidth='container.md'>
             <Stack spacing={{ base: '4', md: '5' }}>
@@ -16,27 +23,26 @@ const Footer: React.FC = () => {
                     <FadeInUp index={1}>
                         <Flex alignItems='center' gap={3}>
                             <Text fontSize="sm" color="fg.subtle" fontWeight='medium'>
-                                Share it on
+                                Share it on:
                             </Text>
                             <ButtonGroup variant="tertiary">
                                 <IconButton
                                     as="a"
-                                    href="#"
+                                    href={facebookShareUrl}
                                     target="_blank"
                                     aria-label='Facebook'
                                     icon={<FaFacebook fontSize="1.25rem" />}
                                 />
                                 <IconButton
                                     as="a"
-                                    href="https://twitter.com/intent/tweet?text=Chuckle Challenge: The AI tracking Try Not To Laugh Challenge!"
+                                    href={twitterShareUrl}
                                     target="_blank"
                                     aria-label="Twitter"
                                     icon={<FaTwitter fontSize="1.25rem" />}
                                 />
                                 <IconButton
                                     as="a"
-                                    href="https://www.linkedin.com/sharing/share-offsite/?url=google.com
-                                    "
+                                    href={linkedInShareUrl}
                                     target="_blank"
                                     aria-label="LinkedIn"
                                     icon={<FaLinkedin fontSize="1.25rem" />}
@@ -73,7 +79,7 @@ const Footer: React.FC = () => {
                 </Flex>
             </Stack>
         </Container>
-    )
-}
+    );
+};
 
 export default Footer;

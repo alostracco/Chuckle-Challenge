@@ -27,13 +27,14 @@ export default function Home() {
   const [videoID, setVideoID] = useState("rokGy0huYEA");
   const handleVideoClick = (videoId: string) => {
     setVideoID(videoId);
-  } 
+  }
 
   return (
     <ChakraProvider theme={theme}>
       <Head>
         <title>Chuckle Challenge</title>
         <link rel='icon' href='/Chuckle Challenge Favicon.ico' />
+        <meta name="description" content="The AI tracking Try Not To Laugh Challenge!" />
       </Head>
 
       <Header />

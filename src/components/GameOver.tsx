@@ -7,6 +7,14 @@ const GameOver: React.FC<{ isOpen: boolean; onClose: () => void, timeElapsed: nu
     const ButtonBg = useColorModeValue('orange.100', 'blue.200');
     const ButtonHoverBg = useColorModeValue('orange.200', 'blue.300');
 
+    const websiteUrl = 'https://www.chucklechallenge.com';
+    const shareText = 'Chuckle Challenge: The AI tracking Try Not To Laugh Challenge!';
+
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(websiteUrl)}`;
+    const twitterShareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(websiteUrl)}`;
+    const linkedInShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(websiteUrl)}&title=${encodeURIComponent(shareText)}`;
+
+
     const CustomButton = chakra(Button, {
         baseStyle: {
             bg: ButtonBg,
@@ -20,21 +28,21 @@ const GameOver: React.FC<{ isOpen: boolean; onClose: () => void, timeElapsed: nu
     const formatTime = (time: number) => {
         const minutes = Math.floor(time / 60);
         const seconds = time % 60;
-        
+
         if (time === 1) {
             return `${seconds} second`;
         }
 
         if (minutes === 1 && seconds === 1) {
-            return `${minutes} minute and ${seconds} second`; 
+            return `${minutes} minute and ${seconds} second`;
         }
 
         if (minutes === 1) {
-            return `${minutes} minute and ${seconds} seconds`; 
+            return `${minutes} minute and ${seconds} seconds`;
         }
 
         if (minutes > 1 && seconds === 1) {
-            return `${minutes} minutes and ${seconds} second`;  
+            return `${minutes} minutes and ${seconds} second`;
         }
 
         if (minutes > 0) {
@@ -67,26 +75,26 @@ const GameOver: React.FC<{ isOpen: boolean; onClose: () => void, timeElapsed: nu
                 <ModalFooter mt={5} justifyContent='space-between'>
                     <Flex alignItems='center' gap={3}>
                         <Text color="fg.subtle" fontWeight='medium'>
-                            Share it on
+                            Share it on:
                         </Text>
                         <ButtonGroup variant="tertiary">
                             <IconButton
                                 as="a"
-                                href="#"
+                                href={facebookShareUrl}
                                 target="_blank"
                                 aria-label="Facebook"
                                 icon={<FaFacebook fontSize="1.25rem" />}
                             />
                             <IconButton
                                 as="a"
-                                href="https://twitter.com/intent/tweet?text=Chuckle Challenge: The AI tracking Try Not To Laugh Challenge!"
+                                href={twitterShareUrl}
                                 target="_blank"
                                 aria-label="Twitter"
                                 icon={<FaTwitter fontSize="1.25rem" />}
                             />
                             <IconButton
                                 as="a"
-                                href="https://www.linkedin.com/sharing/share-offsite/?url=google.com"
+                                href={linkedInShareUrl}
                                 target="_blank"
                                 aria-label="LinkedIn"
                                 icon={<FaLinkedin fontSize="1.25rem" />}
