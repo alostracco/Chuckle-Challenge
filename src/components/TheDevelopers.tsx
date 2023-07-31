@@ -20,11 +20,11 @@ const TheDevelopers: React.FC = () => {
                             BRUCE LIU
                         </Text>
                         <Text color={CardText}>
-                            From Ontario, Canada 🍁
+                            From Oakville, Ontario, Canada 🍁
                         </Text>
-                        <Text color={CardText}>Can type at 130 wpm</Text>
+                        <Text color={CardText}>Can type at 130 WPM</Text>
                         <Text color={CardText}>
-                            Computer Science and business student at Western University, Ivey Business School
+                            Business and Computer Science @Ivey Business School, Western University (HBA & HBSc)
                         </Text>
                         <ButtonGroup variant="tertiary" pt='1rem'>
                             <IconButton
@@ -62,13 +62,13 @@ const TheDevelopers: React.FC = () => {
                             AIDAN LOSTRACCO
                         </Text>
                         <Text color={CardText}>
-                            From Guelph, Ontario, Canada
+                            From Guelph, Ontario, Canada 🍁
                         </Text>
                         <Text color={CardText}>
-                            Hugeee sports guy
+                            Huge sports guy
                         </Text>
                         <Text color={CardText}>
-                            Pursuing an Honours Specialization in Computer Science with a minor in Software Engineering at Western University 
+                            Computer Science and minor in Software Engineering @Western University (HBSc)
                         </Text>
                         <ButtonGroup variant="tertiary" pt='1rem'>
                             <IconButton

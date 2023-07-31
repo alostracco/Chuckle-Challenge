@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
             </FadeInUp>
             <FadeInUp index={1}>
                 <Text fontWeight='medium' textAlign='center'>
-                    The classic Try Not To Laugh Challenge with an AI to see if you laugh!
+                    The classic Try Not To Laugh Challenge with an AI to catch your laugh!
                 </Text>
             </FadeInUp>
         </Stack>

@@ -23,26 +23,26 @@ const TheGame: React.FC = () => {
                 </TabFadeInUp>
                 <TabFadeInUp index={1}>
                 <Text color={textColor}>
-                    The backend of the system primarily relied on Python and utilized TensorFlow to develop a convolutional 
-                    neural network (CNN) model for facial emotion recognition, employing the FER-2013 Dataset from Kaggle.
+                    Employing the FER-2013 dataset from Kaggle, Python and TensorFlow are used to configure a convolutional 
+                    neural network (CNN) model for facial emotion recognition. Using data augmentation techniques during preprocessing, 
+                    the CNN model achieves an 84% testing accuracy.
                 </Text>
                 </TabFadeInUp>
                 <TabFadeInUp index={2}>
                 <Text color={textColor}>
-                    Data augmentation techniques were employed during preprocessing to increase the model's versatility. 
-                    Additionally, Flask was utilized to transform the model into an API, enabling interaction with the JavaScript frontend.
+                    Deployed on AWS EC2, the backend relies on a Flask and Nginx reverse proxy server hosting the CNN model, 
+                    and for cross-communication between the front-end deployed on Vercel, respectively.
                 </Text>
                 </TabFadeInUp>
                 <TabFadeInUp index={3}>
                 <Text color={textColor}>
-                    Machine learning this, machine learning that. I don't know if the machine is learning at all. 
-                    That was a cool tongue twister.
+                    Built on Next.js, the front-end utilizes modern languages & libraries such as React.js, TypeScript, Chakra UI, 
+                    Tailwind CSS, and Framer Motion to leverage static rendering.
                 </Text>
                 </TabFadeInUp>
                 <TabFadeInUp index={4}>
                 <Text color={highlight} fontWeight='medium'>
-                    I have no clue what I'm typing anymore, I ran out of things that I can think about. So I'm just 
-                    going to type randomly until I can fill this space up.
+                    Inspired by the recent surge of AI, this project was created to capitalize on these emerging technologies.
                 </Text>
                 </TabFadeInUp>
             </Stack>

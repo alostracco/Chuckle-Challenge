@@ -56,51 +56,12 @@ const IconGrid: React.FC = () => {
                             padding={2}
                             borderRadius='lg'
                         >
-                            <SiChakraui size={50} />
-                        </Box>
-                    </Hover>
-                </GridItem>
-            </TabFadeInUp>
-            <TabFadeInUp index={2}>
-                <GridItem>
-                    <Hover>
-                        <Box
-                            bg={CustomBg}
-                            padding={2}
-                            borderRadius='lg'
-                        >
-                            <SiTailwindcss size={50} />
-                        </Box>
-                    </Hover>
-                </GridItem>
-            </TabFadeInUp>
-            <TabFadeInUp index={3}>
-                <GridItem>
-                    <Hover>
-                        <Box
-                            bg={CustomBg}
-                            padding={2}
-                            borderRadius='lg'
-                        >
-                            <SiFramer size={50} />
-                        </Box>
-                    </Hover>
-                </GridItem>
-            </TabFadeInUp>
-            <TabFadeInUp index={2}>
-                <GridItem>
-                    <Hover>
-                        <Box
-                            bg={CustomBg}
-                            padding={2}
-                            borderRadius='lg'
-                        >
                             <FaPython size={50} />
                         </Box>
                     </Hover>
                 </GridItem>
             </TabFadeInUp>
-            <TabFadeInUp index={3}>
+            <TabFadeInUp index={2}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -113,7 +74,7 @@ const IconGrid: React.FC = () => {
                     </Hover>
                 </GridItem>
             </TabFadeInUp>
-            <TabFadeInUp index={4}>
+            <TabFadeInUp index={3}>
                 <GridItem>
                     <Hover>
                         <Box
@@ -122,6 +83,45 @@ const IconGrid: React.FC = () => {
                             borderRadius='lg'
                         >
                             <SiFlask size={50} />
+                        </Box>
+                    </Hover>
+                </GridItem>
+            </TabFadeInUp>
+            <TabFadeInUp index={2}>
+                <GridItem>
+                    <Hover>
+                        <Box
+                            bg={CustomBg}
+                            padding={2}
+                            borderRadius='lg'
+                        >
+                            <SiChakraui size={50} />
+                        </Box>
+                    </Hover>
+                </GridItem>
+            </TabFadeInUp>
+            <TabFadeInUp index={3}>
+                <GridItem>
+                    <Hover>
+                        <Box
+                            bg={CustomBg}
+                            padding={2}
+                            borderRadius='lg'
+                        >
+                            <SiTailwindcss size={50} />
+                        </Box>
+                    </Hover>
+                </GridItem>
+            </TabFadeInUp>
+            <TabFadeInUp index={4}>
+                <GridItem>
+                    <Hover>
+                        <Box
+                            bg={CustomBg}
+                            padding={2}
+                            borderRadius='lg'
+                        >
+                            <SiFramer size={50} />
                         </Box>
                     </Hover>
                 </GridItem>
