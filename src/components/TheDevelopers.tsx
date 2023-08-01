@@ -88,7 +88,7 @@ const TheDevelopers: React.FC = () => {
                         </ButtonGroup>
                         <Box position="absolute" top="0" right="0">
                             <Image
-                                src="/Bruce's Memoji.png"
+                                src="/Aidan's Memoji.png"
                                 alt="Image of me"
                                 width="7rem"
                                 height="7rem"

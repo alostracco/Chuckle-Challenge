@@ -106,7 +106,7 @@ const WebcamFeed: React.FC = () => {
           // Handle the response data
           const facialExpression = data.facial_expression;
           console.log('Facial Expression:', facialExpression);
-          if (facialExpression === 'Happy') {
+          if (facialExpression === 'Smiling') {
             setStartTimer(false);
             activated = false;
           }

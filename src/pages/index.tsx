@@ -12,7 +12,7 @@ import Buttons from '@/components/Buttons';
 import { useState } from 'react';
 
 export default function Home(): JSX.Element {
-  const [videoID, setVideoID] = useState<string>("rokGy0huYEA");
+  const [videoID, setVideoID] = useState<string>("BNiTVsAlzlc");
   const handleVideoClick = (videoId: string) => {
     setVideoID(videoId);
   };

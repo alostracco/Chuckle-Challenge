@@ -54,7 +54,7 @@ def predict_facial_expression(image):
     # Pass preprocessed image through CNN model
     prediction = model.predict(image)
     # Get predicted facial expression
-    EMOTIONS = ['Angry', 'Disgust', 'Fear', 'Happy', 'Sad', 'Surprise', 'Neutral']
+    EMOTIONS = ['Not Smiling', 'Smiling']
     facial_expression = EMOTIONS[np.argmax(prediction)]
 
     return facial_expression
