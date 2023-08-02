@@ -14,6 +14,9 @@ const Hero: React.FC = () => {
                     The classic Try Not To Laugh Challenge with an AI to catch your laugh!
                 </Text>
             </FadeInUp>
+            <Text textAlign='center' fontSize='sm' fontWeight='medium' mt={-6}>
+                For best results, ensure good lighting and center only yourself in frame.
+            </Text>
         </Stack>
     );
 };
