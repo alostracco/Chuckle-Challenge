@@ -52,12 +52,12 @@ def preprocess_image(base64_string):
 
 def predict_facial_expression(image):
     # Pass preprocessed image through CNN model
-    prediction = model.predict(image)
+    print(model.predict(image))
+    prediction = (model.predict(image) > 0.5).astype("int32")
     # Get predicted facial expression
-    EMOTIONS = ['Not Smiling', 'Smiling']
-    facial_expression = EMOTIONS[np.argmax(prediction)]
-
-    return facial_expression
+    if (prediction == 1):
+        return 'Smiling'
+    return 'Not Smiling'
 
 # Create Flask app
 app = Flask(__name__)
