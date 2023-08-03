@@ -12,3 +12,5 @@ Deployed on AWS EC2, the backend relies on a Flask and Nginx reverse proxy serve
 Built on Next.js, the front-end utilizes modern languages & libraries such as React.js, TypeScript, Chakra UI, Tailwind CSS, and Framer Motion to leverage static rendering.
 
 Go to https://www.chucklechallenge.com/ to play!
+
+Note: Application does not work on mobile
